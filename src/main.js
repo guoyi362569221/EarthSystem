@@ -20,15 +20,33 @@ const i18n = new VueI18n({
 Vue.config.productionTip = false;
 
 
-//使用钩子函数对路由进行权限跳转
-router.beforeEach((to, from, next) => {
-        // NProgress.start();
-        debugger;
-       next();
+router.routerAsyncFun(function(router) {
+	// let vueApp = new Vue({
+	// 	el: '#app',
+	// 	router,
+	// 	// store,
+	// 	i18n,
+	// 	template: '<App/>',
+	// 	components: {
+	// 		App
+	// 	}
+	// });
+	debugger;
+	new Vue({
+	    router,
+	    i18n,
+	    render: h => h(App)
+	}).$mount('#app');
+
+	//使用钩子函数对路由进行权限跳转
+	router.beforeEach((to, from, next) => {
+
+		//NProgress.start();
+		next();
+	});
+
+	// router.afterEach(transition => {
+	// 	//NProgress.done();
+	// });
 });
 
-new Vue({
-    router,
-    i18n,
-    render: h => h(App)
-}).$mount('#app');

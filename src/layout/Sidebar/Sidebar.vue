@@ -10,38 +10,38 @@
             unique-opened
             router
         >
-            <template v-for="item in items">
+            <template v-for="(route,index) in $router.options.routes">
                 <template v-if="item.subs">
-                    <el-submenu :index="item.index" :key="item.index">
+                    <el-submenu :index="route.path" :key="route.path">
                         <template slot="title">
-                            <i :class="item.icon"></i>
-                            <span slot="title">{{ item.title }}</span>
+                            <i :class="route.icon"></i>
+                            <span slot="title">{{ route.name }}</span>
                         </template>
-                        <template v-for="subItem in item.subs">
+                        <template v-for="(child,cindex) in item.children">
                             <el-submenu
-                                v-if="subItem.subs"
-                                :index="subItem.index"
-                                :key="subItem.index"
+                                v-if="child.children"
+                                :index="child.path"
+                                :key="child.path"
                             >
-                                <template slot="title">{{ subItem.title }}</template>
+                                <template slot="title">{{ child.name }}</template>
                                 <el-menu-item
-                                    v-for="(threeItem,i) in subItem.subs"
-                                    :key="i"
-                                    :index="threeItem.index"
-                                >{{ threeItem.title }}</el-menu-item>
+                                    v-for="(threeItem,i) in child.children"
+                                    :key="child.path+'/'+threeItem.path"
+                                    :index="child.path+'/'+threeItem.path"
+                                >{{ threeItem.name }}</el-menu-item>
                             </el-submenu>
                             <el-menu-item
                                 v-else
-                                :index="subItem.index"
-                                :key="subItem.index"
-                            >{{ subItem.title }}</el-menu-item>
+                                :index="child.path"
+                                :key="child.path"
+                            >{{ child.name }}</el-menu-item>
                         </template>
                     </el-submenu>
                 </template>
                 <template v-else>
-                    <el-menu-item :index="item.index" :key="item.index">
-                        <i :class="item.icon"></i>
-                        <span slot="title">{{ item.title }}</span>
+                    <el-menu-item :index="route.path" :key="item.path">
+                        <i :class="route.icon"></i>
+                        <span slot="title">{{ route.name }}</span>
                     </el-menu-item>
                 </template>
             </template>
