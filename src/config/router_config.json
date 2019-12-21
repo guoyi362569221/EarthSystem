@@ -2,15 +2,19 @@
 	{
 		"path": "/login",
 		"name": "登录",
+		"icon": "fa fa-globe",
 		"component": "Login",
 		"meta": { "title": "登录" }
 	},{
 		"path": "/",
+		"name": "AAAA",
+		"icon": "fa fa-globe",
         "component": "Home",
         "meta": { "title": "'首页" },
         "children": [{
 			"path": "/",
 			"name": "首页",
+			"icon": "fa fa-globe",
 			"component": "Index",
 			"meta": { "title": "首页" }
 		}, {
@@ -21,6 +25,8 @@
 			"meta": { "title": "权限管理" }
 		}, {
 			"path": "*",
+			"name": "未找到页面",
+			"icon": "fa fa-globe",
 			"component": "404",
 			"meta": { "title": "未找到页面" }
 		}]

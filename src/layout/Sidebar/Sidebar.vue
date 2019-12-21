@@ -10,28 +10,15 @@
             unique-opened
             router
         >
-            <template v-for="(route,index) in $router.options.routes">
-                <template v-if="item.subs">
-                    <el-submenu :index="route.path" :key="route.path">
+            <template v-for="(item,index) in $router.options.routes">
+                <template v-if="item.children">
+                    <el-submenu :index="item.path" :key="item.path">
                         <template slot="title">
-                            <i :class="route.icon"></i>
-                            <span slot="title">{{ route.name }}</span>
+                            <i :class="item.icon"></i>
+                            <span slot="title">{{ item.name }}</span>
                         </template>
                         <template v-for="(child,cindex) in item.children">
-                            <el-submenu
-                                v-if="child.children"
-                                :index="child.path"
-                                :key="child.path"
-                            >
-                                <template slot="title">{{ child.name }}</template>
-                                <el-menu-item
-                                    v-for="(threeItem,i) in child.children"
-                                    :key="child.path+'/'+threeItem.path"
-                                    :index="child.path+'/'+threeItem.path"
-                                >{{ threeItem.name }}</el-menu-item>
-                            </el-submenu>
                             <el-menu-item
-                                v-else
                                 :index="child.path"
                                 :key="child.path"
                             >{{ child.name }}</el-menu-item>
@@ -39,9 +26,9 @@
                     </el-submenu>
                 </template>
                 <template v-else>
-                    <el-menu-item :index="route.path" :key="item.path">
-                        <i :class="route.icon"></i>
-                        <span slot="title">{{ route.name }}</span>
+                    <el-menu-item :index="item.path" :key="item.path">
+                        <i :class="item.icon"></i>
+                        <span slot="title">{{ item.name }}</span>
                     </el-menu-item>
                 </template>
             </template>
@@ -155,6 +142,7 @@ export default {
     },
     computed: {
         onRoutes() {
+        if(this.$route.path)
             return this.$route.path.replace('/', '');
         }
     },
