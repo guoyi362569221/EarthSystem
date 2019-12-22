@@ -19,6 +19,7 @@ const Permission = ()=> import('../components/Permission/Permission.vue');
 const routerCfg = {
     'Login': Login,
     'Home': Home,
+    'Body': Body,
     'Index':Index,
     '_404':_404,
     '_403':_403,

@@ -46,3 +46,19 @@ export default {
     }
 };
 </script>
+
+
+<style scoped >
+    @import url(./assets/style/style.css); 
+    
+    .content-box {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: auto;
+        color:#3d3a38;
+        font-size: 14px;
+    }
+
+</style>

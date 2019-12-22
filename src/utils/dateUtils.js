@@ -1,6 +1,6 @@
 /**
- * Create by 郭大力 2019年12月9日13:54:34
- * 日期处理工具
+ * Created by km <kangming@3clear.com> on 2017/6/1.
+ * 日期处理工具类
  */
 
 export let dateUtils = {

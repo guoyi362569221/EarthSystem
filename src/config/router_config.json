@@ -2,31 +2,46 @@
 	{
 		"path": "/login",
 		"name": "登录",
-		"icon": "fa fa-globe",
+		"icon": "el-icon-s-help",
 		"component": "Login",
 		"meta": { "title": "登录" }
-	},{
+	},
+	{
+		"path": "/BBBB",
+		"name": "BBBB",
+		"icon": "el-icon-s-tools",
+        "component": "Body",
+        "meta": { "title": "'首页" },
+        "children": [{
+			"path": "/404",
+			"name": "首页",
+			"icon": "el-icon-location",
+			"component": "404",
+			"meta": { "title": "首页" }
+		}]
+	},
+	{
 		"path": "/",
 		"name": "AAAA",
-		"icon": "fa fa-globe",
+		"icon": "el-icon-s-tools",
         "component": "Home",
         "meta": { "title": "'首页" },
         "children": [{
 			"path": "/",
 			"name": "首页",
-			"icon": "fa fa-globe",
+			"icon": "el-icon-location",
 			"component": "Index",
 			"meta": { "title": "首页" }
 		}, {
 			"path": "permission",
 			"name": "权限管理",
-			"icon": "fa fa-globe",
+			"icon": "el-icon-s-cooperation",
 			"component": "Permission",
 			"meta": { "title": "权限管理" }
 		}, {
 			"path": "*",
 			"name": "未找到页面",
-			"icon": "fa fa-globe",
+			"icon": "el-icon-user-solid",
 			"component": "404",
 			"meta": { "title": "未找到页面" }
 		}]

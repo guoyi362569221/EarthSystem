@@ -20,8 +20,10 @@
                         <template v-for="(child,cindex) in item.children">
                             <el-menu-item
                                 :index="child.path"
-                                :key="child.path"
-                            >{{ child.name }}</el-menu-item>
+                                :key="child.path">
+                                <i :class="child.icon"></i>
+                                <span slot="title">{{ child.name }}</span>
+                            </el-menu-item>
                         </template>
                     </el-submenu>
                 </template>
