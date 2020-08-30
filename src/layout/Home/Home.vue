@@ -1,6 +1,7 @@
 <template>
     <div class="wrapper">
-        <v-head></v-head>
+        <!-- <v-head></v-head> -->
+        <headNav></headNav>
         <v-sidebar></v-sidebar>
         <div class="content-box" :class="{'content-collapse':collapse}">
             <v-tags></v-tags>
@@ -18,6 +19,7 @@
 
 <script>
 import vHead from '../Header/Header.vue';
+import headNav from '../head-nav-v1/HeadNav.vue'
 import vSidebar from '../Sidebar/Sidebar.vue';
 import vTags from '../Tags/Tags.vue';
 import bus from '../Bus/bus';
@@ -30,6 +32,7 @@ export default {
     },
     components: {
         vHead,
+        headNav,
         vSidebar,
         vTags
     },
@@ -49,3 +52,12 @@ export default {
     }
 };
 </script>
+
+<style scoped >
+    
+    .content-box {
+        left: 208px;
+    }
+    
+
+</style>

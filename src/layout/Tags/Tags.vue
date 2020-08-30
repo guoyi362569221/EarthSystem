@@ -119,7 +119,6 @@
         overflow: hidden;
         background: #fff;
         padding-right: 120px;
-        box-shadow: 0 5px 10px #ddd;
     }
 
     .tags ul {
@@ -130,7 +129,7 @@
 
     .tags-li {
         float: left;
-        margin: 3px 5px 2px 3px;
+        margin: 3px 0px 0px 8px;
         border-radius: 3px;
         font-size: 12px;
         overflow: hidden;
@@ -138,17 +137,17 @@
         height: 23px;
         line-height: 23px;
         border: 1px solid #e9eaec;
-        background: #fff;
+        background: rgb(115,202,162);
         padding: 0 5px 0 12px;
         vertical-align: middle;
-        color: #666;
+        color: #fff;
         -webkit-transition: all .3s ease-in;
         -moz-transition: all .3s ease-in;
         transition: all .3s ease-in;
     }
 
     .tags-li:not(.active):hover {
-        background: #f8f8f8;
+        background: #009983;
     }
 
     .tags-li.active {
@@ -162,7 +161,7 @@
         white-space: nowrap;
         text-overflow: ellipsis;
         margin-right: 5px;
-        color: #666;
+        color: #fff;
     }
 
     .tags-li.active .tags-li-title {
