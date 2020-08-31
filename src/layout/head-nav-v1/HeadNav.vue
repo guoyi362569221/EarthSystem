@@ -1,7 +1,9 @@
 <template>
 	<div class="head-nav" :style="{'height':headerHt+'px'}">
 		<div :style="{'height':headerHt+'px'}">
-			<img class="logoImg" style="height: 75px;margin-left:18px ;margin-right: 80px" src="../../assets/logo.png" alt="">
+			<!-- <img class="logoImg" style="height: 75px;margin-left:18px ;margin-right: 80px" src="../../assets/logo.png" alt=""> -->
+			<!-- <div class="sysLogInfo">东北地质灾害监测预警平台</div> -->
+			<div class="sysLogInfo">大气精细化管理应用</div>
 			<div class="menuDiv">
 				<div style="width: 100%;height: 37px;">
 					<div class="userInfo">
@@ -219,6 +221,20 @@
 	
 	.currTime {
 		width: 200px;
+	}
+
+	.sysLogInfo{
+		float: left;
+		height: 100%;
+		width: 480px;
+		/* margin-left:18px ; */
+		background: url(../../assets/logo.png) 18px 13px no-repeat;
+		line-height: 75px;
+		text-indent: 90px;
+		font-size: 29px;
+		font-family: 微软雅黑;
+		font-weight: bold;
+		letter-spacing: 3px;
 	}
 	
 	.menuDiv {
