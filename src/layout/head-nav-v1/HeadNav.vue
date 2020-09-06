@@ -38,9 +38,6 @@
 										<i :class="item.icon  +' icon'" :style="{'color':'#fff'}"></i> {{item.name}}
 									</div>
 								</template>
-								<el-menu-item v-for='(child,cindex) in item.children' :key='child.path' :index='child.path'>
-									<i :class="child.icon  +' icon'"></i> {{child.name}}
-								</el-menu-item>
 							</el-submenu>
 
 							<el-menu-item v-else :index="item.path" :key='item.path' :style="{width:menuWidth+'px'}">
@@ -56,48 +53,7 @@
 
 					<el-menu v-else class="top-menu" unique-opened router  mode="horizontal">
 						<template v-for="(route,index) in mainMenu">
-							<el-submenu :index="route.path" :style="{width:menuWidth+'px'}" v-if="route.children.length>1">
-
-								<template slot="title">
-
-									<i :class="route.icon  +' icon'" :style="{'color':'#fff'}"></i> {{route.name}}
-
-								</template>
-
-								<template v-for='(child,cindex) in route.children'>
-									<el-submenu :key='parseRouterUrl(route.path+"/"+child.path)' :index='parseRouterUrl(route.path+"/"+child.path)' v-if="child.children&&child.children.length>1">
-										<template slot="title">
-
-											<i :class="child.icon  +' icon'" :style="{'color':'#fff'}"></i> {{child.name}}
-
-										</template>
-
-										<template v-for='(c,cindex) in child.children'>
-											<el-submenu :key='parseRouterUrl(route.path+"/"+child.path+"/"+c.path)' :index='parseRouterUrl(route.path+"/"+child.path+"/"+c.path)' v-if="c.children&&c.children.length>1">
-												<template slot="title">
-													<i :class="c.icon  +' icon'" :style="{'color':'#fff'}"></i> {{c.name}}
-												</template>
-
-												<el-menu-item v-for='(d,cindex) in c.children' :key='parseRouterUrl(route.path+"/"+child.path+"/"+c.path+"/"+d.path)' :index='parseRouterUrl(route.path+"/"+child.path+"/"+c.path+"/"+d.path)'>
-													<i :class="d.icon  +' icon'"></i> {{d.name}}
-												</el-menu-item>
-											</el-submenu>
-
-											<el-menu-item v-else :key='parseRouterUrl(route.path+"/"+child.path+"/"+c.path)' :index='parseRouterUrl(route.path+"/"+child.path+"/"+c.path)'>
-												<i :class="c.icon  +' icon'"></i> {{c.name}}
-											</el-menu-item>
-										</template>
-
-									</el-submenu>
-
-									<el-menu-item v-else :key='parseRouterUrl(route.path+"/"+child.path)' :index='parseRouterUrl(route.path+"/"+child.path)'>
-
-										<i :class="child.icon  +' icon'"></i> {{child.name}}
-									</el-menu-item>
-								</template>
-							</el-submenu>
-
-							<el-menu-item v-else :style="{width:menuWidth+'px'}" :index="route.path" :key='route.path'>
+							<el-menu-item :style="{width:menuWidth+'px'}" :index="route.path" :key='route.path'>
 								<!--<i :class="route.icon"></i>-->
 								<i :class="route.icon +' icon'"></i> {{route.name}}
 								<!-- {{item.path}} -->
@@ -105,45 +61,6 @@
 
 						</template>
 					</el-menu>
-
-					<div class="toolDiv">
-
-						<!--<el-popover ref="popover2" placement="top-start" title="快捷菜单" width="290" trigger="hover">
-							<div style="height:350px">
-								<el-scrollbar style="height:100%; width:100%;" tag="div" wrap-class="favsTable" view-class="favsTable">
-
-									<el-table class="favsTable" @row-click="openPath" :data="favoriteTags" style="width: 100%">
-										<el-table-column label="功能名称" width="130">
-											<template slot-scope="scope">
-												<el-tag size="medium">{{ scope.row.name }}</el-tag>
-											</template>
-										</el-table-column>
-										<el-table-column label="登录显示" width="80">
-											<template slot-scope="scope">
-
-												<el-switch v-model="scope.row.showcollectstatus" @change="changeFavStatus(scope.row,evt)">
-												</el-switch>
-											</template>
-										</el-table-column>
-										<el-table-column label="取消收藏" width="80">
-											<template slot-scope="scope">
-												<el-button type="danger" size="mini" icon="el-icon-delete" style="padding: 3px 9px" @click="handleCancelFav(scope.row,evt)"></el-button>
-											</template>
-										</el-table-column>
-									</el-table>
-								</el-scrollbar>
-							</div>
-						</el-popover>
-
-						<i v-popover:popover2 id="headerIconOfTag" :class="['fa fa-send circle', {'bounce':addNewTag}]"></i>
-
-						<el-popover ref="popover1" placement="top-start" title="标题" width="200" trigger="hover" content="系统切换">
-						</el-popover>
-
-						<i v-popover:popover1 class="fa fa-exchange circle"></i>-->
-
-					</div>
-
 				</div>
 			</div>
 		</div>

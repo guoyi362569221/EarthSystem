@@ -3,46 +3,54 @@
 		"path": "/login",
 		"name": "登录",
 		"icon": "el-icon-s-help",
+		"color": "rgb(51, 202, 83)",
 		"component": "Login",
 		"meta": { "title": "登录" }
 	},
 	{
-		"path": "/BBBB",
-		"name": "BBBB",
+		"path": "/Index",
+		"name": "首页",
 		"icon": "el-icon-s-tools",
+		"color": "rgb(51, 202, 83)",
         "component": "Body",
-        "meta": { "title": "'首页" },
+        "meta": { "title": "'首页1" },
         "children": [{
 			"path": "/404",
 			"name": "首页",
 			"icon": "el-icon-location",
-			"component": "404",
+			"color": "rgb(51, 202, 83)",
+			"component": "_404",
 			"meta": { "title": "首页" }
 		}]
 	},
 	{
-		"path": "/",
-		"name": "AAAA",
+		"path": "/*",
+		"name": "第二个菜单",
 		"icon": "el-icon-s-tools",
+		"color": "rgb(51, 202, 83)",
         "component": "Home",
-        "meta": { "title": "'首页" },
+		"meta": { "title": "'首页2" },
+		"redirect": "/AAAAA",
         "children": [{
-			"path": "/",
+			"path": "/AAAAA",
 			"name": "首页",
 			"icon": "el-icon-location",
+			"color": "rgb(51, 202, 83)",
 			"component": "Index",
-			"meta": { "title": "首页" }
+			"meta": { "title": "首页3" }
 		}, {
-			"path": "permission",
+			"path": "/Permission",
 			"name": "权限管理",
 			"icon": "el-icon-s-cooperation",
+			"color": "#000",
 			"component": "Permission",
 			"meta": { "title": "权限管理" }
 		}, {
-			"path": "*",
+			"path": "/NotFound",
 			"name": "未找到页面",
 			"icon": "el-icon-user-solid",
-			"component": "404",
+			"color": "#000",
+			"component": "_404",
 			"meta": { "title": "未找到页面" }
 		}]
 	}

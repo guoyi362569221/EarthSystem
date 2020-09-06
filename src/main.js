@@ -10,6 +10,9 @@ import 'element-ui/lib/theme-chalk/index.css'; // 默认主题
 import './assets/css/icon.css';
 // import 'babel-polyfill';
 
+import $_jQuery from 'jquery';
+import store from './store';
+
 
 Vue.use(VueI18n);
 Vue.use(ElementUI, {
@@ -20,6 +23,22 @@ const i18n = new VueI18n({
 });
 
 Vue.config.productionTip = false;
+
+Vue.prototype['$_jQuery'] = $_jQuery;
+
+//  添加全局处理窗口大小变更方法
+Vue.prototype['$$onResize'] = function (callFun) {
+	this.$jQuery(window).resize(() => {
+		if (this._statue !== 'CLOSE') {
+			callFun.call(this);
+		}
+	});
+	this.$root.eventBus.$on('toggleMenu', () => {
+		if (this._statue !== 'CLOSE') {
+			callFun.call(this);
+		}
+	});
+};
 
 
 router.routerAsyncFun(function(router) {
@@ -35,7 +54,13 @@ router.routerAsyncFun(function(router) {
 	// });
 	debugger;
 	new Vue({
-	    router,
+		data(){
+			return {
+				eventBus: new Vue()
+			}
+		},
+		router,
+		store,
 	    i18n,
 	    render: h => h(App)
 	}).$mount('#app');

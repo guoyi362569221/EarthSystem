@@ -1,6 +1,6 @@
 export default {
     //左侧菜单宽度
-    width: '200px',
-    menu_flag: true,
+    width: '65px',
+    menuShow: false,
     preWidth:'200px'
 };

@@ -4,12 +4,12 @@ export default {
     [types.SET_MENU_OPEN](state) {
         state.width = '200px';
         state.preWidth = '200px';
-        state.menu_flag = true;
+        state.menuShow = true;
     },
     [types.SET_MENU_CLOSE](state) {
-        state.width = '44px';
-        state.preWidth = '44px';
-        state.menu_flag = false;
+        state.width = '65px';
+        state.preWidth = '65px';
+        state.menuShow = false;
     },
 
     [types.SET_MENU_HIDE](state) {
