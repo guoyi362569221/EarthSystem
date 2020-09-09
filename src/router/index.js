@@ -26,23 +26,6 @@ const routerCfg = {
     'Permission':Permission
 };
 
-// let env = process.env;
-// let promiseDef;
-
-
-// if (env['NODE_ENV'] === 'development') {//开发环境
-//     promiseDef = import("../config/router_config.json");
-// }
-// else {//生成环境
-//     let defaultUrl = 'static/config/routerConfig.json?' + new Date().getTime();
-//     promiseDef = Vue.axios({
-//         methods: 'get',
-//         headers: {},
-//         url: defaultUrl,
-//         baseURL: ''
-//     });
-// }
-
 /**
  * 递归解析路由配置
  * @param cfgs

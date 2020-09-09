@@ -1,8 +1,3 @@
-/**
- * Create by 郭大力 2019年12月9日13:54:34
- * Http请求封装类
- */
-
 import Vue form 'vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
