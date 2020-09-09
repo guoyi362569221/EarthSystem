@@ -1,4 +1,8 @@
+import {
+	store
+} from 'utils/';
+
 export default {
-    visitedViews: [],
+	visitedViews: store.get('visitedViews') ||[],
     cachedViews: []
 };

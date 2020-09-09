@@ -1,0 +1,27 @@
+.el-tooltip__popper.is-dark {
+    background: #009581;
+}
+
+.el-tooltip__popper[x-placement^=top] .popper__arrow {
+    border-top-color: #009581;
+}
+
+.el-tooltip__popper[x-placement^=top] .popper__arrow::after {
+    border-top-color: #009581;
+}
+
+.el-tooltip__popper[x-placement^=bottom] .popper__arrow {
+    border-bottom-color: #009581
+}
+
+.el-tooltip__popper[x-placement^=bottom] .popper__arrow::after {
+    border-bottom-color: #009581
+}
+
+.el-tooltip__popper[x-placement^=right] .popper__arrow {
+    border-right-color: #009581;
+}
+
+.el-tooltip__popper[x-placement^=right] .popper__arrow::after {
+    border-right-color: #009581;
+}

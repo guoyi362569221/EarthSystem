@@ -1,0 +1,17 @@
+@import url("menu.css");
+@import url("base.css");
+@import url("checkbox-button.css");
+@import url("radio-button.css");
+@import url("tooltip.css");
+@import url("slider.css");
+@import url("tree.css");
+@import url("button.css");
+@import url("table.css");
+/*@import url("cascader.css");*/
+/*@import url("switch.css");
+@import url("slider.css");
+@import url("tree.css");
+@import url("forcastStep.css");*/
+.el-input__inner {
+    border-radius: 0;
+}

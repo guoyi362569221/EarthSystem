@@ -1,0 +1,220 @@
+@content-backcolor: #f4faf9;
+@top-height: 36px;
+@top-backcolor: #089680;
+@oneLevel-menu-height: 49px;
+@twoLevel-menu-height: 49px;
+@oneLevel-menu-actived-color: #000;
+@oneLevel-menu-actived-backcolor: #fff;
+@oneLevel-menu-hover-color: #000;
+@oneLevel-menu-hover-backcolor: #fff;
+@twoLevel-menu-actived-color: #000;
+@twoLevel-menu-actived-backcolor: #fff;
+@twoLevel-menu-hover-color: #000;
+@twoLevel-menu-hover-backcolor: #fff;
+@oneLevel-menu-borderColor: #ddd;
+@twoLevel-menu-borderColor: #fff;
+@collapse-title-icon-color: orange;
+@left-menu-transition: all .3s;
+
+.content {
+    background-color: @content-backcolor;
+    border: 1px solid #089680;
+    transition: @left-menu-transition;
+    border-left: none;
+    box-sizing: border-box;
+    // overflow: hidden;
+    position: fixed;
+    z-index: 1;
+
+    .top {
+        height: @top-height;
+        background-color: @top-backcolor;
+        .top-icon {
+            width: @top-height;
+            height: @top-height;
+            line-height: @top-height;
+            text-align: center;
+            float: right;
+            cursor: pointer;
+            transition: all .3s;
+            transform: rotate(0deg);
+            color: #fff;
+            font-size: 18px;
+        }
+        .top-icon.isFold {
+            transform: rotate(90deg);
+        }
+        .top-icon:hover {
+            color: #fff;
+        }
+    }
+
+
+    .menu-content {
+        cursor: pointer;
+        .onelevel-menu {
+            width: 100%;
+            min-height: @oneLevel-menu-height;
+            line-height: @oneLevel-menu-height;
+            font-weight: 500;
+            border-bottom: 1px dashed #ebebeb;
+            box-sizing: border-box;
+            overflow: hidden;
+            .left-meun-collapse {
+                position: relative;
+                width: 100%;
+                font-size: 14px;
+                box-sizing: border-box;
+            }
+            .left-menu-collaps-title {
+                width: 100%;
+                height: @oneLevel-menu-height;
+                line-height: @oneLevel-menu-height;
+                cursor: pointer;
+                box-sizing: border-box;
+                overflow: hidden;
+                position: relative;
+
+            }
+            .left-menu-collaps-title.open {
+                border-bottom: 1px solid #ddd;
+            }
+            .left-menu-collaps-title {
+                color: @oneLevel-menu-hover-color;
+                background-color: #e6f5f2;
+            }
+            .con-collapse-title-icon {
+                color: @collapse-title-icon-color;
+                float: right;
+                right: 5%;
+                position: absolute;
+                transition: all .3s;
+                transform: rotate(0deg);
+            }
+            .con-collapse-title-icon.open {
+                transform: rotate(180deg);
+            }
+            .left-menu-collaps-title-icon {
+                width: @oneLevel-menu-height;
+                float: left;
+                height: @oneLevel-menu-height;
+                line-height: @oneLevel-menu-height;
+                text-align: center;
+                margin-left: -4px;
+            }
+            .left-menu-collaps-title-text {
+                width: calc(100% - 49px);
+                float: left;
+                height: @oneLevel-menu-height;
+                line-height: @oneLevel-menu-height;
+                text-align: left;
+            }
+        }
+
+        .onelevel-menu.onelevel-single-route:hover {
+            color: @oneLevel-menu-hover-color;
+            background-color: @oneLevel-menu-hover-backcolor;
+        }
+        .onelevel-menu.onelevel-active-router {
+            color: @oneLevel-menu-hover-color;
+            background-color: @oneLevel-menu-actived-backcolor;
+        }
+        .onelevel-menu.hasHoverBox.onelevel-active-router {
+            color: @oneLevel-menu-hover-color;
+            background-color: @oneLevel-menu-actived-backcolor;
+            border-left: #008572 5px solid;
+            box-sizing: border-box;
+            transition: border .3s;
+        }
+        .onelevel-menu.onelevel-single-route.onelevel-active-router {
+            color: @oneLevel-menu-actived-color;
+            background-color: @oneLevel-menu-actived-backcolor;
+        }
+        .onelevel-menu-label-content {
+            height: @oneLevel-menu-height;
+            width: 100%;
+            overflow: hidden;
+        }
+        .onelevel-menu-icon {
+            width: 43px;
+            line-height: @oneLevel-menu-height;
+            float: left;
+            text-align: center;
+            color: @top-backcolor;
+        }
+        .onelevel-menu-text {
+            float: left;
+            line-height: @oneLevel-menu-height;
+            text-align: left;
+        }
+        .twolevel-menu {
+
+            width: 100%;
+            height: @twoLevel-menu-height;
+            line-height: @twoLevel-menu-height;
+            font-weight: 400;
+            box-sizing: border-box;
+            border-bottom: 1px dashed #ebebeb;
+            overflow: hidden;
+        }
+        .twolevel-menu:last-child {
+            border-bottom: none;
+        }
+        .twolevel-menu:hover {
+            color: @twoLevel-menu-hover-color;
+            background-color: @twoLevel-menu-hover-backcolor;
+        }
+        .twolevel-menu.twolevel-active-router {
+            color: @twoLevel-menu-actived-color;
+            background-color: @twoLevel-menu-actived-backcolor;
+        }
+        .twolevel-menu.hasHoverBox.twolevel-active-router .twolevel-menu-icon {
+            padding-left: 27px;
+            border-left: #008572 5px solid;
+            box-sizing: border-box;
+            transition: all .3s;
+            width: 48px;
+        }
+
+
+        .left-menu-collaps-content.fold .twolevel-menu.hasHoverBox.twolevel-active-router .twolevel-menu-icon {
+            border-left: #008572 5px solid;
+            box-sizing: border-box;
+            transition: all .3s;
+            width: 38px;
+              padding-left: 0px;
+            // margin-left: 5px;
+        }
+        .left-menu-collaps-content.fold .twolevel-menu-icon {
+            width: 38px;
+            // margin-left: 5px;
+            padding-left: 0px;
+            border-left: transparent 5px solid;
+        }
+        .twolevel-menu-icon {
+            width: 48px;
+            line-height: @twoLevel-menu-height;
+            float: left;
+            text-align: center;
+            box-sizing: border-box;
+            border-left:  solid 5px transparent;
+            padding-left: 27px;
+        }
+        .twolevel-menu-text {
+            width:130px;
+            float: left;
+            line-height: @twoLevel-menu-height;
+            text-align: left;
+            margin-left: 17px;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+        }
+    }
+    .menu-content-fold .con-collapse-title-icon {
+        display: none;
+    }
+
+
+
+}

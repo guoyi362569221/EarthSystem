@@ -1,0 +1,6 @@
+.left-nav .el-scrollbar__wrap{
+  overflow-x:hidden !important;
+}
+.left-nav .el-scrollbar__bar.is-vertical{
+  width:3px !important;
+}

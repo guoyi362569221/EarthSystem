@@ -12,8 +12,9 @@ import './assets/css/icon.css';
 
 import $_jQuery from 'jquery';
 import store from './store';
+import less from 'less'
 
-
+Vue.use(less)
 Vue.use(VueI18n);
 Vue.use(ElementUI, {
     size: 'small'

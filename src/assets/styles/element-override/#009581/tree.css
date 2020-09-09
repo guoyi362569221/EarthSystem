@@ -1,0 +1,29 @@
+.el-tree--highlight-current .el-tree-node.is-current>.el-tree-node__content {
+    border:1px solid #008572 !important;
+    color: #000;
+    box-sizing: border-box ;
+    transition: all .3s;
+}
+.el-tree{
+	background: transparent !important;
+	margin-top: -4px;
+}
+.el-tree-node{
+	margin-top: 4px;
+	background-color: transparent;
+}
+.el-tree-node__content{
+	border:1px solid #dcdfe6 !important;
+	box-sizing: border-box ;
+}
+.el-tree-node>.el-tree-node__children .el-tree-node__content{
+	border:1px solid #dcdfe6 !important;
+	background-color: #fff;
+}
+.el-tree-node__children .el-tree-node.is-current>.el-tree-node__content{
+   background-color: #fff;
+}
+.el-tree-node>.el-tree-node__children{
+	background-color: #fff;
+}
+

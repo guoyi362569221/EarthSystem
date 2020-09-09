@@ -35,9 +35,9 @@ a {
     width: auto;
     height: 100%;
     padding: 8px;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     box-sizing: border-box;
-    border-top:1px solid #089680;
+    border:1px solid #089680;
 }
 
 .content-collapse {

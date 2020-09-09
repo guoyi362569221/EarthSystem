@@ -1,0 +1,18 @@
+﻿{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "NAME": "赣州市", "CODE": "360700", "LABEL": "赣州市" }, "geometry": { "type": "Point", "coordinates": [ 114.935029999913581, 25.831828999801065 ] } },
+{ "type": "Feature", "properties": { "NAME": "吉安市", "CODE": "360800", "LABEL": "吉安市" }, "geometry": { "type": "Point", "coordinates": [ 114.992508999812003, 27.11344299963152 ] } },
+{ "type": "Feature", "properties": { "NAME": "萍乡市", "CODE": "360300", "LABEL": "萍乡市" }, "geometry": { "type": "Point", "coordinates": [ 113.854556999696911, 27.622768000274842 ] } },
+{ "type": "Feature", "properties": { "NAME": "宜春市", "CODE": "360900", "LABEL": "宜春市" }, "geometry": { "type": "Point", "coordinates": [ 114.416778000296219, 27.815618999890212 ] } },
+{ "type": "Feature", "properties": { "NAME": "新余市", "CODE": "360500", "LABEL": "新余市" }, "geometry": { "type": "Point", "coordinates": [ 114.917347000413898, 27.817809000161141 ] } },
+{ "type": "Feature", "properties": { "NAME": "抚州市", "CODE": "361000", "LABEL": "抚州市" }, "geometry": { "type": "Point", "coordinates": [ 116.358182000260044, 27.949217000329593 ] } },
+{ "type": "Feature", "properties": { "NAME": "鹰潭市", "CODE": "360600", "LABEL": "鹰潭市" }, "geometry": { "type": "Point", "coordinates": [ 117.06920199986628, 28.260188999686861 ] } },
+{ "type": "Feature", "properties": { "NAME": "上饶市", "CODE": "361100", "LABEL": "上饶市" }, "geometry": { "type": "Point", "coordinates": [ 117.943433000264292, 28.454863000095763 ] } },
+{ "type": "Feature", "properties": { "NAME": "南昌市", "CODE": "360100", "LABEL": "南昌市" }, "geometry": { "type": "Point", "coordinates": [ 115.858198000123366, 28.682892000207978 ] } },
+{ "type": "Feature", "properties": { "NAME": "景德镇市", "CODE": "360200", "LABEL": "景德镇市" }, "geometry": { "type": "Point", "coordinates": [ 117.17842000035624, 29.268835999952216 ] } },
+{ "type": "Feature", "properties": { "NAME": "九江市", "CODE": "360400", "LABEL": "九江市" }, "geometry": { "type": "Point", "coordinates": [ 116.001931000391167, 29.705078000155439 ] } }
+]
+}

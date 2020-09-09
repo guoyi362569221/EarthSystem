@@ -4,6 +4,11 @@ export default  {
     addVisitedViews({ commit }, view) {
         commit('ADD_VISITED_VIEWS', view)
     },
+
+    updateVisitedViews({ commit }, view) {
+        commit('UPDATE_VISITED_VIEWS', view)
+    },
+
     delVisitedViews({ commit, state }, view) {
         return new Promise((resolve) => {
             commit('DEL_VISITED_VIEWS', view)

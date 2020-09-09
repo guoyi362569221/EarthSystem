@@ -1,0 +1,132 @@
+{
+  "admin_id": [
+    [0, [1]],
+    [1, [4]]
+  ],
+  "provinceCode": "210000",
+  "warnContent":"AQI大于等于200",
+  "publishSysUrl":"http://192.168.120.154/publish",
+  "cityPredTableColumns": [{
+      "prop": "warnTime",
+      "label": "预警时间",
+      "align": "center",
+      "sortable": false,
+      "width": 180
+    },
+    {
+      "prop": "timeRange",
+      "label": "预警时间段",
+      "align": "center",
+      "sortable": false,
+      "width": 180
+    },
+    {
+      "prop": "cityname",
+      "label": "城市",
+      "align": "center",
+      "sortable": false,
+      "width": 180
+    },
+    {
+      "prop": "level",
+      "label": "预警级别",
+      "align": "center",
+      "sortable": false,
+      "width": 80
+    },
+    {
+      "prop": "primarypollutant",
+      "label": "首要污染物",
+      "align": "center",
+      "sortable": false,
+      "width": 100
+    },
+    {
+      "prop": "modelname",
+      "label": "模式",
+      "align": "center",
+      "sortable": false,
+      "width": 80
+    }
+  ],
+  "provPredTableColumns": [
+    {
+      "prop": "warnTime",
+      "label": "预警时间",
+      "align": "center",
+      "sortable": false,
+      "width": 120
+    },
+    {
+      "prop": "timeRange",
+      "label": "预警时间段",
+      "align": "center",
+      "sortable": false,
+      "width": 180
+    },
+    {
+      "prop": "cityname",
+      "label": "城市",
+      "align": "center",
+      "sortable": false,
+      "width": 180
+    },
+    {
+      "prop": "level",
+      "label": "预警级别",
+      "align": "center",
+      "sortable": false,
+      "width": 100
+    },
+    {
+      "prop": "primarypollutant",
+      "label": "首要污染物",
+      "align": "center",
+      "sortable": false,
+      "width": 100
+    },
+    {
+      "prop": "modelname",
+      "label": "模式",
+      "align": "center",
+      "sortable": false,
+      "width": 80
+    }
+  ],
+  "monTableColumns": [{
+      "prop": "warnTime",
+      "label": "预警时间",
+      "align": "center",
+      "sortable": false,
+      "width": 120
+    },
+    {
+      "prop": "timeRange",
+      "label": "预警时间段",
+      "align": "center",
+      "sortable": false,
+      "width": 240
+    },
+    {
+      "prop": "cityname",
+      "label": "城市",
+      "align": "center",
+      "sortable": false,
+      "width": 180
+    },
+    {
+      "prop": "warnContent",
+      "label": "预警内容",
+      "align": "center",
+      "sortable": false,
+      "width": ""
+    },
+    {
+      "prop": "primarypollutant",
+      "label": "首要污染物",
+      "align": "center",
+      "sortable": false,
+      "width": ""
+    }
+  ]
+}

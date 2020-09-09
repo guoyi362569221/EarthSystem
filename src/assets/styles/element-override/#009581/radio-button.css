@@ -1,0 +1,70 @@
+.el-radio.is-bordered.el-radio--small {
+    margin-top: 10px;
+    padding: 0px 9px 0 9px;
+    height: 22px;
+   border: 1px solid #CCCCCC;
+    background: #f9f9f9;
+   border-radius: 3px;
+  
+}
+
+.el-radio.is-bordered.el-radio--small .el-radio__label {
+    padding-left: 0;
+}
+
+.el-radio.is-bordered.el-radio--small .el-radio__inner {
+    display: none;
+}
+
+.el-radio.is-bordered.is-checked {
+   background: #05AF94;
+    color: #fff;
+    border: 1px solid #05AF94;
+
+}
+
+.el-radio__input.is-checked+.el-radio__label {
+    color: #fff;
+}
+
+
+
+
+.el-radio-button.el-radio-button--small {
+   height: 22px; 
+    /*border: 1px solid #CCCCCC;*/
+    background: #f9f9f9;
+  	border-radius: 3px;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+.el-radio-button .el-radio-button__inner{
+  
+  
+    line-height: 20px;
+    font-size: 12px;
+       padding: 0px 9px 0px 9px;
+       border: none;
+       border-radius: 3px !important;
+       border: 1px solid #CCCCCC;
+     background-color: #f9f9f9;
+}
+
+
+.el-radio-button__orig-radio:checked+.el-radio-button__inner {
+     background: #05AF94;
+    color: #fff;
+    box-shadow: none;
+    border: 1px solid #05AF94;
+}
+
+.el-radio-button.el-radio-button--small.is-active:first-child .el-radio-button__inner{
+	border-left:1px solid #05AF94; ;
+	border-radius:0px ;
+}
+.el-radio-button:first-child .el-radio-button__inner{
+	border-left:1px solid #CCC; ;
+	border-radius:0px ;
+}

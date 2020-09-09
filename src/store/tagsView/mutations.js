@@ -1,4 +1,7 @@
 import * as types from './mutations_types'
+import {
+    store
+} from 'utils/';
 
 export default {
     [types.ADD_VISITED_VIEWS](state, view) {
@@ -6,11 +9,19 @@ export default {
         state.visitedViews.push({
             name: view.name,
             path: view.path,
-            title: view.meta.title || 'no-name'
+            favorite: !!view.favorite
         })
-        if (!view.meta.noCache) {
-            state.cachedViews.push(view.name)
-        }
+        state.cachedViews.push(view.name);
+        store.set('visitedViews', state.visitedViews);
+    },
+
+    [types.UPDATE_VISITED_VIEWS](state, view) {
+        state.visitedViews.forEach(v => {
+            if (v.path === view.path) {
+                v['favorite'] = view.favorite;
+            }
+        });
+        store.set('visitedViews', state.visitedViews);
     },
 
     [types.DEL_VISITED_VIEWS](state, view) {
@@ -27,6 +38,8 @@ export default {
                 break
             }
         }
+
+        store.set('visitedViews', state.visitedViews);
     },
 
     [types.DEL_OTHERS_VIEWS](state, view) {
@@ -43,10 +56,12 @@ export default {
                 break
             }
         }
+        store.set('visitedViews', state.visitedViews);
     },
 
     [types.DEL_ALL_VIEWS](state) {
         state.visitedViews = [];
-        state.cachedViews = []
+        state.cachedViews = [];
+        store.remove('visitedViews');
     },
 };

@@ -1,5 +1,9 @@
 import * as types from './mutations_types'
 
+import {
+    store
+} from '../../utils/store/index';
+
 export default {
     [types.SHOW_LOADING](state) {
         state.ajax_loading = true;

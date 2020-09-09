@@ -41,30 +41,6 @@ export function request({
     };
 
     options[type === 'get' ? 'params' : 'data'] = data;
-    if (requireToken === true) {
-        if (!this.$store.state.user.userinfo.token) {//判断token是否存在或过期
-            this.$alert('用户未登录！', '错误', {
-                confirmButtonText: '确定',
-                type: 'error'
-            });
-            this.$router.push('/login');
-            return {};
-        } else if (this.$store.state.user.userinfo.token['.expires']) {
-            let expiresData = dateUtils.strToDate(this.$store.state.user.userinfo.token['.expires']);
-            let diff = dateUtils.dateDiff('s', new Date(), expiresData);
-            if (diff > 0)
-                options.headers['Authorization'] = this.$store.state.user.userinfo.token.token_type + ' ' + this.$store.state.user.userinfo.token.access_token;
-            else {
-                this.$router.push('/login');
-                return {};
-            }
-        }
-        else {
-            this.$router.push('/login');
-            return {};
-        }
-    }
-
     //axios内置属性均可写在这里
     if (opts && typeof opts === 'object') {
         for (let f in opts) {

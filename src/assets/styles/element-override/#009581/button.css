@@ -1,0 +1,40 @@
+/*预报会商中按钮样式修改*/
+.consultation.el-button--primary {
+  background-color: #6cc5fe !important;
+  border-color: #6cc5fe !important;
+}
+.consultation.el-button--primary.is-disabled,
+ .consultation.el-button--primary.is-disabled:active,
+  .consultation.el-button--primary.is-disabled:focus, 
+  .consultation.el-button--primary.is-disabled:hover {
+  background-color: rgba(108, 197, 254, 0.7) !important;
+  border-color: rgba(108, 197, 254, 0.7)  !important;
+}
+/*//绿色按钮*/
+.consultation.el-button--success {
+  background-color: #00cfb2 !important;
+  border-color: #00cfb2 !important;
+}
+
+.consultation.el-button--success.is-disabled,
+ .consultation.el-button--success.is-disabled:active,
+  .consultation.el-button--success.is-disabled:focus, 
+  .consultation.el-button--success.is-disabled:hover {
+  background-color: rgba(0, 207, 178, 0.7) !important;
+  border-color: rgba(0, 207, 178, 0.7) !important;
+}
+/*橘色按钮*/
+.consultation.el-button--warning{
+	background-color: #ffbf6b !important;
+  	border-color: #ffbf6b !important;
+}
+.consultation.el-button--warning.is-disabled,
+.consultation.el-button--warning.is-disabled:active,
+.consultation.el-button--warning.is-disabled:focus, 
+.consultation.el-button--warning.is-disabled:hover{
+  	background-color: rgba(230, 162, 60, 0.7) !important;
+ 	 border-color:  rgba(230, 162, 60, 0.7) !important;
+  }
+.consultation.el-button--small {
+  padding: 4px 10px !important;
+}

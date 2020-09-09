@@ -1,0 +1,15 @@
+.warningInfo-popover .el-popover__title{
+  display: none !important;
+}
+.warningInfo-content .el-table thead th{
+  background: #fdf6ec !important;
+}
+.warningInfo-content  .el-table th, .el-table tr{
+}
+.warningInfo-popover.el-popover{
+  border: 1px solid #fac909;
+  box-shadow:  0 2px 50px 0 rgba(0, 0, 0, 0.6) !important;
+}
+.warningInfo-popover .el-popper[x-placement^=bottom] .popper__arrow{
+  border-bottom-color: #fac909 !important;
+}
