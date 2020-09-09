@@ -29,7 +29,7 @@ Vue.prototype['$_jQuery'] = $_jQuery;
 
 //  添加全局处理窗口大小变更方法
 Vue.prototype['$$onResize'] = function (callFun) {
-	this.$jQuery(window).resize(() => {
+	$_jQuery(window).resize(() => {
 		if (this._statue !== 'CLOSE') {
 			callFun.call(this);
 		}
@@ -40,7 +40,6 @@ Vue.prototype['$$onResize'] = function (callFun) {
 		}
 	});
 };
-
 
 router.routerAsyncFun(function(router) {
 	// let vueApp = new Vue({

@@ -1,7 +1,3 @@
-/**
- * Create by 郭大力 2019年12月9日13:54:34
- * 路由处理
- */
 
 import Vue from 'vue';
 import Router from 'vue-router';
