@@ -68,7 +68,7 @@ export default {
           });
         this.show = !this.show;
       }
-    }
+    },
   },
   created() {
     this.$nextTick(() => {
