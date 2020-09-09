@@ -195,7 +195,15 @@ async function routerAsyncFun(callfun) {
             "path": "modelcorre",
             "name": "人工订正",
             "icon": "fa fa-th-list",
-            "component": "_404"
+            "component": "_404",
+            "children": [
+              {
+                "path": "dismap1",
+                "name": "区域模拟分析",
+                "icon": "fa fa-map",
+                "component": "_404"
+              }
+            ]
           },
           {
             "path": "forecastlog",

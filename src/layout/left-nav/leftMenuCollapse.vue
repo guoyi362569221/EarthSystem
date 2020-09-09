@@ -20,71 +20,64 @@
 </template>
 
 <script>
-	export default {
-		props: {
-			title: {
-				type: String,
-				default: ''
-			},
-			isShow: {
-				type: Boolean,
-				default: false
-			},
-			icon: {
-				type: String,
-				default: ''
-			},
-			isFold: {
-				type: Boolean,
-				default: false
-			},
-			iconColor: {
-				type: String,
-				default: ""
-			}
-		},
-		data() {
-			return {
-				show: this.isShow
-			}
-		},
-		methods: {
-			setShow(e) {
-
-				if(e === 'init') {
-					if(!this.show === true) {
-						this.$_jQuery(this.$el).parent().find(".left-menu-collaps-content").animate({
-							height: 'toggle'
-						});
-					}
-				} else {
-					this.$_jQuery(this.$el).parent().find(".left-menu-collaps-content").animate({
-						height: 'toggle'
-					});
-					this.show = !this.show;
-				}
-
-			}
-			////   this.$emit('input', this.show);
-			//  ,setSASA(){
-			//  		  let div=this.$_jQuery("<div style='width:120px;height:100px;bacground-color:#ddd;position:absolute;top:0px;left:50px;z-index:111;'></div>")
-			//  		  this.$_jQuery('body').append(div);
-			//  		  div.append(this.$el)
-			////  		 this.$_jQuery('#csasasa').append(this.$el)
-			//  		debugger
-			//  }
-		},
-		created() {
-			this.$nextTick(() => {
-
-				this.setShow('init');
-			})
-
-		}
-
-	}
+export default {
+  props: {
+    title: {
+      type: String,
+      default: "",
+    },
+    isShow: {
+      type: Boolean,
+      default: false,
+    },
+    icon: {
+      type: String,
+      default: "",
+    },
+    isFold: {
+      type: Boolean,
+      default: false,
+    },
+    iconColor: {
+      type: String,
+      default: "",
+    },
+  },
+  data() {
+    return {
+      show: this.isShow,
+    };
+  },
+  methods: {
+    setShow(e) {
+      if (e === "init") {
+        if (!this.show === true) {
+          this.$_jQuery(this.$el)
+            .parent()
+            .find(".left-menu-collaps-content")
+            .animate({
+              height: "toggle",
+            });
+        }
+      } else {
+        this.$_jQuery(this.$el)
+          .parent()
+          .find(".left-menu-collaps-content")
+          .animate({
+            height: "toggle",
+          });
+        this.show = !this.show;
+      }
+    }
+  },
+  created() {
+    this.$nextTick(() => {
+      this.setShow("init");
+    });
+  },
+};
 </script>
 
 <style lang="less" scoped>
-	@import url("./assets/style/style.less");
+@import url("./assets/style/style.less");
 </style>
