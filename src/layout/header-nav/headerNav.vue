@@ -34,14 +34,14 @@
 		<div class="quit-menu">
 			<div class="userNameDiv">
 				<i class="fa fa-user" style="margin-right: 5px"></i>
-				<span> 您好，AAAA</span>
+				<!-- <span> 您好，AAAA</span> -->
 				<span class="currTime">{{currTime}}</span>
 			</div>
 
-			<div class="logoutDiv" @click='setPassWord'>
+			<!-- <div class="logoutDiv" @click='setPassWord'>
 				<i class="fa fa-edit"></i>
 				<span>修改密码</span>
-			</div>
+			</div> -->
 
 			<div class="logoutDiv" @click='logout'>
 				<i class="fa fa-power-off logout"></i>

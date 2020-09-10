@@ -11,6 +11,7 @@ const Index = () => import('../components/Index/Index.vue');
 const _404 = () => import ('../components/404/404.vue');
 const _403 = ()=> import('../components/403/403.vue');
 const Permission = ()=> import('../components/Permission/Permission.vue');
+const MisManage =()=>import('../components/MisManage/MisManage.vue')
 
 const routerCfg = {
     'Login': Login,
@@ -19,7 +20,8 @@ const routerCfg = {
     'Index':Index,
     '_404':_404,
     '_403':_403,
-    'Permission':Permission
+    'Permission':Permission,
+    'MisManage':MisManage
 };
 
 /**
@@ -116,194 +118,40 @@ async function routerAsyncFun(callfun) {
         ]
       },
       {
-        "path": "/citypredict",
-        "name": "预报分析",
+        "path": "/secondMenu",
+        "name": "第二个菜单",
         "icon": "icon-3clear-curve-e",
-        "component": "Body",
-        "redirect": "/citypredict/dismap",
+        "component": "Home",
+        "redirect": "/secondMenu/errorpage",
         "children": [
           {
-            "path": "dismap",
-            "name": "区域模拟分析",
+            "path": "errorpage",
+            "name": "错误页面",
+            "icon": "fa fa-map",
+            "component": "_404"
+          },
+          {
+            "path":"mismanage",
+            "name": "管理页面",
+            "icon": "fa fa-map",
+            "component": "MisManage"
+          }
+        ]
+      },
+      {
+        "path": "/thirdMenu",
+        "name": "第三个菜单",
+        "icon": "icon-3clear-curve-e",
+        "component": "Body",
+        "redirect": "/thirdMenu/errorpage",
+        "children": [
+          {
+            "path": "errorpage",
+            "name": "错误页面",
             "icon": "fa fa-map",
             "component": "_404"
           }
         ]
-      },
-      {
-        "path": "/weapredict",
-        "name": "气象分析",
-        "icon": "icon-3clear-radar-c",
-        "component": "Body",
-        "redirect": "/weapredict/metesimuanalysis",
-        "children": [
-          {
-            "path": "metesimuanalysis",
-            "name": "气象模拟分析",
-            "icon": "fa fa-cloud",
-            "component": "_404"
-          },
-          {
-            "path": "reference",
-            "name": "气象实况参考",
-            "icon": "fa fa-sitemap",
-            "component": "_404"
-          },
-          {
-            "path": "fdownload",
-            "name": "气象预报参考",
-            "icon": "fa fa-asterisk",
-            "component": "_404"
-          },
-          {
-            "path": "externallink",
-            "name": "外部系统参考",
-            "icon": "fa fa-window-restore",
-            "component": "_404"
-          }
-        ]
-      },
-      {
-        "path": "/citystatistic",
-        "name": "预报会商",
-        "icon": "icon-3clear-city",
-        "component": "Home",
-        "redirect": "/citystatistic/modelcorre",
-        "children": [
-          {
-            "path": "modelcorre",
-            "name": "人工订正",
-            "icon": "fa fa-th-list",
-            "component": "_404",
-            "children": [
-              {
-                "path": "dismap1",
-                "name": "区域模拟分析",
-                "icon": "fa fa-map",
-                "component": "_404"
-              }
-            ]
-          },
-          {
-            "path": "forecastlog",
-            "name": "预报简报",
-            "icon": "fa fa-file-word-o",
-            "component": "_404"
-          },
-          {
-            "path": "message",
-            "name": "短信发送",
-            "icon": "fa fa-envelope",
-            "component": "_404"
-          },
-          {
-            "path": "warning",
-            "name": "污染预警提示",
-            "icon": "fa fa-bell",
-            "component": "_404"
-          },
-          {
-            "path": "report",
-            "name": "信息上报",
-            "icon": "fa fa-window-restore",
-            "component": "_404"
-          },
-          {
-            "path": "pptdown",
-            "name": "PPT制作",
-            "icon": "fa fa-_404-powerpoint-o",
-            "component": "PPTDown"
-          }
-        ]
-      },
-      {
-        "path": "/evaluate",
-        "name": "评估分析",
-        "icon": "icon-3clear-Leaf",
-        "component": "Home",
-        "redirect": "/evaluate/citycontrast",
-        "children": [
-          {
-            "path": "citycontrast",
-            "name": "城市对比分析",
-            "icon": "fa fa-bar-chart",
-            "component": "_404"
-          },
-          {
-            "path": "stacontrast",
-            "name": "站点对比分析",
-            "icon": "fa fa-line-chart",
-            "component": "_404"
-          },
-          {
-            "path": "statistics",
-            "name": "统计报表分析",
-            "icon": "fa fa-table",
-            "component": "_404"
-          },
-          {
-            "path": "model",
-            "name": "模式预报评估",
-            "icon": "fa fa-pie-chart",
-            "component": "_404"
-          },
-          {
-            "path": "correct",
-            "name": "预报效果评估",
-            "icon": "fa fa-area-chart",
-            "component": "_404"
-          },
-          {
-            "path": "forecaster",
-            "name": "预报员评估",
-            "icon": "fa fa-bar-chart-o",
-            "component": "_404"
-          }
-        ]
-      },
-      {
-        "path": "/mng",
-        "name": "管理",
-        "icon": "icon-3clear-menu",
-        "component": "Home",
-        "redirect": "/mng/Workforce",
-        "children": [
-          {
-            "path": "Workforce",
-            "name": "排班管理",
-            "icon": "fa fa-list-alt",
-            "component": "_404"
-          },
-          {
-            "path": "org",
-            "name": "组织机构管理",
-            "icon": "fa fa-user-secret",
-            "component": "_404"
-          },
-          {
-            "path": "role",
-            "name": "角色管理",
-            "icon": "fa fa-user-secret",
-            "component": "_404"
-          },
-          {
-            "path": "user",
-            "name": "用户管理",
-            "icon": "fa fa-users",
-            "component": "_404"
-          },
-          {
-            "path": "edit",
-            "name": "用户设置",
-            "icon": "fa fa-vcard",
-            "component": "_404"
-          }
-        ]
-      },
-      {
-        "path": "*",
-        "hidden": true,
-        "component": "_404"
       }
     ];
         
