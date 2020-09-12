@@ -1,5 +1,11 @@
 <template>
   <div>
+    <!-- <div class="crumbs">
+        <el-breadcrumb separator-class="el-icon-arrow-right">
+          <span class="fa fa-tachometer" style="float:left;margin-right:10px;font-size:14px;color:rgb(17, 161, 138);"></span>
+          <el-breadcrumb-item v-for="item in levelList" :key="item.path">{{item.name}}</el-breadcrumb-item>
+        </el-breadcrumb>
+    </div> -->
     <!-- 搜索框 -->
     <div class="seach-container">
       <div class="flex flex-wrap justify-between">
@@ -43,7 +49,7 @@
                 type="daterange"
                 :default-time="['00:00:00', '23:59:59']"
                 value-format="yyyy-MM-dd"
-                range-separator="至"
+                range-separator="-"
                 start-placeholder="开始日期"
                 end-placeholder="结束日期"
                 placeholder="选择日期"
@@ -103,11 +109,12 @@
         <el-table-column prop="address" label="地址" align="center"></el-table-column>
         <el-table-column prop="address" label="地址" align="center"></el-table-column>
         <el-table-column prop="address" label="地址" align="center"></el-table-column>
-        <el-table-column label="操作" align="center">
+        <el-table-column label="操作" width="250" align="center">
           <template slot-scope="scope">
             <el-button size="mini" type="success" plain @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
             <el-button size="mini" type="info" plain>详情</el-button>
             <el-button size="mini" type="danger" plain @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+            <router-link class="a-color" :to="{ name: 'AAA'}">查看</router-link>
           </template>
         </el-table-column>
       </el-table>
@@ -168,8 +175,8 @@ export default MisManageJs;
     height: 30px;
     line-height: 30px;
     text-align: center;
-    font-size: 14px;
-    color: #000;
+    font-size: 12px;
+    color: #909399;
     white-space: nowrap;
     border: 1px solid #dcdfe6;
     border-right: 0;
@@ -231,6 +238,6 @@ export default MisManageJs;
   position: relative;
   bottom: 0px;
   overflow: hidden;
-  height: 700px;
+  height: 600px;
 }
 </style>

@@ -2,6 +2,7 @@ export default {
   components: {},
   data: function () {
     return {
+      levelList: [],
       tableData: [{
         date: '2016-05-02',
         name: '王小虎',
@@ -95,13 +96,36 @@ export default {
   },
   created() {
     this.$$onResize(this.onResize);
+    this.getBreadcrumb()
   },
   mounted() {
 
   },
+  watch: {
+    $route() {
+      this.getBreadcrumb()
+    }
+  },
   methods: {
     onResize() {
     },
+    getBreadcrumb() {
+      this.levelList = [];
+      let matcheds = this.$route.matched.filter(item => item.name)
+      if(matcheds&&matcheds.length>0){
+        for(let i=0;i<matcheds.length;i++){
+          const item = matcheds[i];
+          this.levelList.push({
+            path: '',
+            name: item['name']
+          }) 
+        }
+      }
+    },
+    handleEdit(){
+      this.$router.push('AAA')
+      this.$store.commit("breadListStateAdd", {name:"新增",path:"AAA"});
+    }
   },
   activated: function () {
     this.onResize();

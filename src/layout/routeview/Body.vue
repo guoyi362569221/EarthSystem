@@ -21,7 +21,7 @@ export default {
   },
   data() {
     return {
-      headerHt: 80,
+      headerHt: 75,
     };
   },
 

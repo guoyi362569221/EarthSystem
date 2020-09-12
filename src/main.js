@@ -5,8 +5,8 @@ import ElementUI from 'element-ui';
 import VueI18n from 'vue-i18n';
 
 import 'font-awesome/css/font-awesome.css';
-import 'element-ui/lib/theme-chalk/index.css'; // 默认主题
-// import './assets/css/theme-green/index.css'; // 浅绿色主题
+// import 'element-ui/lib/theme-chalk/index.css'; // 默认主题
+import './assets/css/theme-green/index.css'; // 浅绿色主题
 import './assets/css/icon.css';
 // import 'babel-polyfill';
 
@@ -52,7 +52,6 @@ router.routerAsyncFun(function(router) {
 	// 		App
 	// 	}
 	// });
-	debugger;
 	new Vue({
 		data(){
 			return {

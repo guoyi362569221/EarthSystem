@@ -14923,6 +14923,7 @@
     font-size: 14px;
     vertical-align: middle;
     display: inline-block;
+    margin-left: 5px!important;
 }
 .el-tree-node__loading-icon {
     display: inline-block;

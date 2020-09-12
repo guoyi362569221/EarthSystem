@@ -32,10 +32,6 @@ a {
 }
 
 .content {
-    width: auto;
-    height: 100%;
-    padding: 8px;
-    /* overflow-y: scroll; */
     box-sizing: border-box;
     border:1px solid #089680;
 }

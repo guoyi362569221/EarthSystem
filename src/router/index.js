@@ -105,15 +105,15 @@ async function routerAsyncFun(callfun) {
         "component": "Login"
       },
       {
-        "path": "/homepage",
+        "path": "/home",
         "name": "首页",
         "component": "Body",
-        "redirect": "/homepage/",
+        "redirect": "/home",
         "children": [
           {
-            "path": "/homepage",
+            "path": "/home",
             "name": "首页",
-            "component": "Permission"
+            "component": "Index"
           }
         ]
       },
@@ -134,7 +134,16 @@ async function routerAsyncFun(callfun) {
             "path":"mismanage",
             "name": "管理页面",
             "icon": "fa fa-map",
-            "component": "MisManage"
+            "component": "MisManage",
+            "children":[
+              {
+                "path": "detail",
+                "name": "详情页面",
+                "icon": "fa fa-map",
+                "hidden": true,
+                "component": "_404"
+              },
+            ]
           }
         ]
       },
@@ -143,25 +152,29 @@ async function routerAsyncFun(callfun) {
         "name": "第三个菜单",
         "icon": "icon-3clear-curve-e",
         "component": "Body",
-        "redirect": "/thirdMenu/errorpage",
+        "redirect": "/thirdMenu/errorpage2",
         "children": [
           {
-            "path": "errorpage",
+            "path": "errorpage2",
             "name": "错误页面",
             "icon": "fa fa-map",
             "component": "_404"
           }
         ]
-      }
+      },
+      {
+        "path": "AAA",
+        "name": "AAA",
+        "hidden": true,
+        "component": "_404"
+      },
     ];
         
         parseRouter(routes);
-        // debugger;
         callfun(new Router({
             routes: routes
         }))
     } catch (err) {
-        debugger;
         console.log(err);
         callfun(new Router({
             routes: []

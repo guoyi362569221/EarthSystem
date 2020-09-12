@@ -8,6 +8,7 @@
           class="content"
           :style="{left:'calc('+$store.state.leftmenu.width+' + 8px)','top':headerHt+'px'}"
         >
+          <bread-crumb></bread-crumb>
           <keep-alive>
             <router-view></router-view>
           </keep-alive>
@@ -19,15 +20,17 @@
 <script>
 import HeaderNav from "../header-nav/headerNav.vue";
 import LeftNav from "../left-nav/leftNav.vue";
+import BreadCrumb from "../breadcrumb/breadcrumb.vue"
 export default {
   name: "home",
   components: {
     HeaderNav,
     LeftNav,
+    BreadCrumb,
   },
   data() {
     return {
-      headerHt: 80,
+      headerHt: 83,
     };
   },
 
@@ -40,6 +43,7 @@ export default {
 </script>
 <style scoped lang='less'>
 .content {
+  padding: 8px;
   position: absolute;
   right: 0;
   bottom: 0;
