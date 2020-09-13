@@ -1,6 +1,6 @@
 <template lang="html">
 	<div class="header-nav" :style="{'height':'75px'}">
-		<div class="sysLogInfo">地质灾害监测预警平台</div>
+		<div class="sysLogInfo">大气精细化管理应用</div>
 		<div class="head-nav-menu" id="head-nav-menu" v-show="menuShow">
 			<div class="back-div" :style="{'width':128*(mainRouters.length)+'px'}"></div>
 			<div class="hover-box" v-show="setHovboxShow"></div>

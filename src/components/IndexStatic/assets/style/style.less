@@ -1,0 +1,147 @@
+.indexStatic{
+    body::-webkit-scrollbar {
+        display: none;
+    }
+    
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+    }
+    /* CSS Document */
+    ::-webkit-scrollbar-track{border-radius: 10px;-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);}/*滚动条的滑轨背景颜色*/
+    ::-webkit-scrollbar-thumb{background-color: rgba(0,0,0,0.05);border-radius: 10px;-webkit-box-shadow: inset 1px 1px 0 rgba(75, 75, 75, 0.58);}/*滑块颜色*/
+    ::-webkit-scrollbar-thumb{background-color: rgba(0,0,0,0.2);border-radius: 10px;-webkit-box-shadow: inset 1px 1px 0 rgba(48, 48, 48, 0.92);}
+    ::-webkit-scrollbar{width: 16px;height: 16px;}/* 滑块整体设置*/
+    ::-webkit-scrollbar-track,
+    ::-webkit-scrollbar-thumb{border-radius: 999px;border: 5px solid transparent;}
+    ::-webkit-scrollbar-track{box-shadow: 1px 1px 5px rgba(0,0,0,.2) inset;}
+    ::-webkit-scrollbar-thumb{min-height: 20px;background-clip: content-box;box-shadow: 0 0 0 5px rgba(255,255,255,.5) inset;}
+    ::-webkit-scrollbar-corner{background: transparent;}/* 横向滚动条和纵向滚动条相交处尖角的颜色 */
+    
+    .left{
+        float: left;
+    }
+    .right{
+        float: right;
+    }
+    .con{
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+        background-color: #f5f5f5;
+        padding: 8px;
+    }
+    .con_div{
+        height: 110px;
+        width: 100%;
+    }
+    .con_div_text{
+        height: 100%;
+        background-color: #00ad94;
+        width: calc(100% / 3.000 - 8px);
+    }
+    .con_div_text:nth-child(2) {
+        margin: 0px 12px;
+    }
+    .con_div_text01{
+        width: 50%;
+        height: 100%;
+    }
+    .text01_img{
+        width: 40px;
+        height: 40px;
+        margin-left: 5%;
+      margin-top: 35px;
+    }
+    .text01_div{
+        margin-top: 15px;
+        margin-left: 5%;
+        text-align: center;
+    
+    }
+    .text01_div p{
+        line-height: 35px;
+    }
+    .text01_div p:nth-child(1){
+        font-size: 16px;
+        color: #ffffff;
+        /* font-weight: bold; */
+    }
+    .text01_div p:nth-child(2){
+        font-size: 28px;
+        color: #ffff43;
+        font-weight: 600;
+    
+    }
+    .sky{
+        color: #25f3e6 !important;
+    }
+    .org{
+        color: #ff4e4e !important;
+    }
+    .div_any{
+        width: 100%;
+        margin-top: 8px;
+        height: calc(100% - 118px);
+    }
+    .div_any01{
+        width: 23%;
+        height: 100%;
+    }
+    .div_any02{
+        width: calc(54% - 16px);
+        margin: 0px 8px;
+        height: 100%;
+    }
+    .div_any_child{
+        width: 100%;
+        height: calc(50% - 25px);
+        box-shadow: -10px 0px 15px #00ad94 inset, /*å·¦è¾¹é˜´å½±*/
+        0px -10px 15px #00ad94 inset, /*ä¸Šè¾¹é˜´å½±*/
+        10px 0px 15px #00ad94 inset, /*å³è¾¹é˜´å½±*/
+        0px 10px 15px #00ad94 inset;
+        border: 1px solid #00ad94;
+        box-sizing: border-box;
+        position: relative;
+        margin-top: 25px;
+    }
+    .p_chart{
+        height: calc(100% - 33px);
+        padding: 5px 10px;
+        margin-top: 15px;
+    }
+    .div_height{
+        /* height:685px !important; */
+        height:calc(100% - 25px) !important;
+    }
+    .div_any_title{
+        background-color: #00ad94;
+        border-radius: 4px;
+        position: absolute;
+        height: 35px;
+        width: 60%;
+        top:-15px;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 16px;
+        left: 20%;
+        line-height: 35px;
+        text-align: center;
+    }
+    .div_any_title img{
+        width: 18px;
+        height: 18px;
+        position: relative;
+        top:2px;
+        margin-right: 5px;
+    }
+    .any_title_width{
+        width: 30% !important;
+        left: 35% !important;
+    }
+}
+
