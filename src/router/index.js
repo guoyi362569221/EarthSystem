@@ -11,7 +11,8 @@ const Index = () => import('../components/Index/Index.vue');
 const _404 = () => import ('../components/404/404.vue');
 const _403 = ()=> import('../components/403/403.vue');
 const Permission = ()=> import('../components/Permission/Permission.vue');
-const MisManage =()=>import('../components/MisManage/MisManage.vue')
+const MisManage =()=>import('../components/MisManage/MisManage.vue');
+const IndexStatic =()=>import('../components/IndexStatic/IndexStatic.vue');
 
 const routerCfg = {
     'Login': Login,
@@ -21,7 +22,8 @@ const routerCfg = {
     '_404':_404,
     '_403':_403,
     'Permission':Permission,
-    'MisManage':MisManage
+    'MisManage':MisManage,
+    'IndexStatic':IndexStatic
 };
 
 /**
@@ -105,6 +107,19 @@ async function routerAsyncFun(callfun) {
         "component": "Login"
       },
       {
+        "path": "/indexStatic",
+        "name": "总体概览",
+        "component": "Body",
+        "redirect": "/indexStatic",
+        "children": [
+          {
+            "path": "/indexStatic",
+            "name": "总体概览",
+            "component": "IndexStatic"
+          }
+        ]
+      },
+      {
         "path": "/home",
         "name": "首页",
         "component": "Body",
@@ -118,47 +133,44 @@ async function routerAsyncFun(callfun) {
         ]
       },
       {
-        "path": "/secondMenu",
-        "name": "第二个菜单",
+        "path": "/warningAnalysis",
+        "name": "预警分析",
         "icon": "icon-3clear-curve-e",
         "component": "Home",
-        "redirect": "/secondMenu/errorpage",
+        "redirect": "/warningAnalysis/warningList",
         "children": [
           {
-            "path": "errorpage",
-            "name": "错误页面",
+            "path": "warningList",
+            "name": "预警列表",
             "icon": "fa fa-map",
-            "component": "_404"
+            "component": "MisManage"
           },
           {
-            "path":"mismanage",
-            "name": "管理页面",
+            "path":"warningSet",
+            "name": "预警设置",
             "icon": "fa fa-map",
             "component": "MisManage",
-            "children":[
-              {
-                "path": "detail",
-                "name": "详情页面",
-                "icon": "fa fa-map",
-                "hidden": true,
-                "component": "_404"
-              },
-            ]
           }
         ]
       },
       {
-        "path": "/thirdMenu",
-        "name": "第三个菜单",
+        "path": "/monitorAanlysis",
+        "name": "监测分析",
         "icon": "icon-3clear-curve-e",
-        "component": "Body",
-        "redirect": "/thirdMenu/errorpage2",
+        "component": "Home",
+        "redirect": "/monitorAanlysis/monitorInfo",
         "children": [
           {
-            "path": "errorpage2",
-            "name": "错误页面",
+            "path": "monitorInfo",
+            "name": "监测信息",
             "icon": "fa fa-map",
             "component": "_404"
+          },
+          {
+            "path": "monitorData",
+            "name": "监测数据",
+            "icon": "fa fa-map",
+            "component": "MisManage"
           }
         ]
       },
