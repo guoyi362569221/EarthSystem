@@ -122,9 +122,13 @@ export default {
         }
       }
     },
-    handleEdit(){
-      this.$router.push('AAA')
-      this.$store.commit("breadListStateAdd", {name:"新增",path:"AAA"});
+    handleEdit(index){
+      debugger
+      this.$router.push({
+        name: 'AAAAA',
+        params: { data: this.tableData[index] }
+      })
+      this.$store.commit("breadListStateAdd", {name:"新增",path:"AAAAA"});
     }
   },
   activated: function () {

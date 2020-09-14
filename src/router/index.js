@@ -150,6 +150,20 @@ async function routerAsyncFun(callfun) {
             "name": "预警设置",
             "icon": "fa fa-map",
             "component": "MisManage",
+          },
+          {
+            "path": "AAAAA",
+            "name": "AAAAA",
+            "hidden": true,
+            "icon": "fa fa-map",
+            "component": "_404"
+          },
+          {
+            "path":"BBBBB",
+            "name": "BBBBB",
+            "hidden": true,
+            "icon": "fa fa-map",
+            "component": "_404",
           }
         ]
       },
@@ -173,13 +187,7 @@ async function routerAsyncFun(callfun) {
             "component": "MisManage"
           }
         ]
-      },
-      {
-        "path": "AAA",
-        "name": "AAA",
-        "hidden": true,
-        "component": "_404"
-      },
+      }
     ];
         
         parseRouter(routes);

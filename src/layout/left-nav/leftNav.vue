@@ -14,10 +14,10 @@
 			</div>
 			<li v-if="!item.hidden&& $route.matched.length && $route.matched[0].path===item.path" v-for="(item,idx) in  $router.options.routes">
 				<ul v-if="item.children&&item.children.length>0">
-					<li v-for="(oneLevel,index) in item.children" @click="changeRouter(item.path+'/'+oneLevel.path,oneLevel,item)" :class="['onelevel-menu',{'onelevel-active-router':isActived(item,oneLevel),'onelevel-single-route':!oneLevel.children,'hasHoverBox':!hoverBoxShow}]">
+					<li v-if="!oneLevel.hidden"  v-for="(oneLevel,index) in item.children" @click="changeRouter(item.path+'/'+oneLevel.path,oneLevel,item)" :class="['onelevel-menu',{'onelevel-active-router':isActived(item,oneLevel),'onelevel-single-route':!oneLevel.children,'hasHoverBox':!hoverBoxShow}]">
 						<left-menu-collapse @collChange="collShowChange" :iconColor="getColors(index)" :isFold="isFold" :icon="oneLevel.icon" :isShow="setCollapseInitShow(item.path,oneLevel.path) " :title="oneLevel.name" v-if="oneLevel.children&&oneLevel.children.length>0">
 							<ul v-if="oneLevel.children&&oneLevel.children.length>0">
-								<li v-for="(twoLevel,tidx) in oneLevel.children" @click.stop="changeTwoRouter(item.path+'/'+oneLevel.path+'/'+twoLevel.path)" :class="['twolevel-menu',{'twolevel-active-router':isActived(item,oneLevel,twoLevel),'hasHoverBox':!hoverBoxShow}]">
+								<li v-if="!twoLevel.hidden" && v-for="(twoLevel,tidx) in oneLevel.children" @click.stop="changeTwoRouter(item.path+'/'+oneLevel.path+'/'+twoLevel.path)" :class="['twolevel-menu',{'twolevel-active-router':isActived(item,oneLevel,twoLevel),'hasHoverBox':!hoverBoxShow}]">
 									<el-tooltip :disabled=!isFold class="left-menu-tooltip" effect="dark" :content="twoLevel.name" placement="left-start">
 										<div class="twolevel-menu-icon">
 											<i :class="twoLevel.icon" :style="{'font-size':iconSize,'color':'#008572'}"></i>

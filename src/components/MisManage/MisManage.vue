@@ -114,7 +114,6 @@
             <el-button size="mini" type="success" plain @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
             <el-button size="mini" type="info" plain>详情</el-button>
             <el-button size="mini" type="danger" plain @click="handleDelete(scope.$index, scope.row)">删除</el-button>
-            <router-link class="a-color" :to="{ name: 'AAA'}">查看</router-link>
           </template>
         </el-table-column>
       </el-table>
