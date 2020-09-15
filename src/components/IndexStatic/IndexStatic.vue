@@ -58,7 +58,7 @@
         <div class="left div_any01">
           <div class="div_any_child">
             <div class="div_any_title">
-              <img src="./assets/images/title_1.png" />监测数据统计
+              <img src="./assets/images/title_1.png" />设备类型预警统计
             </div>
             <p id="pieChart1" class="p_chart"></p>
           </div>
