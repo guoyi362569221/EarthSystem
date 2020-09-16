@@ -27,6 +27,9 @@ Vue.config.productionTip = false;
 
 Vue.prototype['$_jQuery'] = $_jQuery;
 
+import VueECharts from 'vue-echarts';
+Vue.component('chart', VueECharts);
+
 //  添加全局处理窗口大小变更方法
 Vue.prototype['$$onResize'] = function (callFun) {
 	$_jQuery(window).resize(() => {

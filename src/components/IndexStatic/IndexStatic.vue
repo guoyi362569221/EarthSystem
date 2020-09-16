@@ -60,13 +60,17 @@
             <div class="div_any_title">
               <img src="./assets/images/title_1.png" />设备类型预警统计
             </div>
-            <p id="pieChart1" class="p_chart"></p>
+            <p id="pieChart1" class="p_chart">
+              <chart ref="chart1" style="width: 100%;height:100%;" :options="chart1Options" :auto-resize="true"></chart>
+            </p>
           </div>
           <div class="div_any_child">
             <div class="div_any_title">
               <img src="./assets/images/title_2.png" />设备类型统计
             </div>
-            <p id="histogramChart" class="p_chart"></p>
+            <p id="histogramChart" class="p_chart">
+               <chart ref="chart2" style="width: 100%;height:100%;" :options="chart2Options" :auto-resize="true"></chart>
+            </p>
           </div>
         </div>
         <div class="div_any02 left">
