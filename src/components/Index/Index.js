@@ -125,7 +125,7 @@ export default {
         //crs: L.CRS.EPSG4326, //WGS 84坐标系，GPS默认坐标系
         // minZoom: 1,
         zoom: 15,
-        attributionControl: true,
+        attributionControl: false,
         zoomControl:false
       });
 

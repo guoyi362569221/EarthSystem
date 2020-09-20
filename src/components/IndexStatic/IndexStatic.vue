@@ -9,7 +9,7 @@
             <i class="left icoClass01 fa fa-newspaper-o"></i>
             <!-- <img src="./assets/images/info_1.png" class="left text01_img" /> -->
             <div class="left text01_div">
-              <p>发布公告总数(次)</p>
+              <p>公告总数(次)</p>
               <p>1235</p>
             </div>
           </div>
@@ -85,9 +85,39 @@
               <img src="./assets/images/title_0.png" />地图分析
             </div>
             <div
-              id="mapChart"
-              style="width:97.5%;height:95%;display: inline-block;padding-left: 1.25%;padding-top:2.2%"
-            ></div>
+              id="mapDIV"
+              style="width: calc(100% - 28px);height: calc(100% - 34px);display: inline-block;margin-left: 14px;margin-top: 20px;">
+              
+            </div>
+            <!-- 工具栏 -->
+              <div class="tool_pull_down">
+                <div class="location" v-popover:infomationPopover>
+                  <i class="fa fa-sitemap" aria-hidden="true"></i>
+                  <span class="tool_text">切换定位</span>
+                  <i class="el-icon-arrow-down"></i>
+                  <el-popover v-model="showType_popover" ref="infomationPopover" popper-class="HomePageDisMapWrapMenu" placement="bottom-end" width="80" trigger="click">
+                      <div class="popoverContainer" v-if="localInfoObj.location.locate">
+                          <div :class="['popoverItem',{'popoverItemChecked':localInfoObj.locate==item.label}]" v-for="(item,index) in localInfoObj.location.locate" :key="index" @click="onLocationChange(item)">
+                              <span>{{item.label}}</span>                                
+                          </div>
+                      </div>
+                  </el-popover>
+                </div>
+                <div class="layer" v-popover:layersPopover>
+                  <i class="fa fa-sliders" aria-hidden="true"></i>图层管理
+                  <i class="el-icon-arrow-down"></i>
+                  <el-popover  ref="layersPopover" popper-class="HomePageDisMapWrapMenu" placement="bottom-end" width="120" trigger="click">
+                      <div class="popoverContainer">
+                        <el-checkbox-group 
+                          v-model="checkedLayers">
+                          <div class="popoverItem" style="text-align: left;" v-for="mapItem in mapOptions" :key="mapItem.id" >
+                              <el-checkbox :key="mapItem.id" :label="mapItem.id" @change="onLayerChange(mapItem)">{{mapItem.label}}</el-checkbox>
+                          </div>
+                        </el-checkbox-group>
+                      </div>
+                  </el-popover>
+                </div>
+              </div>
           </div>
         </div>
         <div class="right div_any01">
@@ -180,4 +210,155 @@ export default IndexStaticJs;
 
 <style lang="less" scoped>
 @import url(./assets/style/style.less);
+.tool_pull_down {
+  height: 36px;
+  border-radius: 4px;
+  position: absolute;
+  top: 28px;
+  right: 22px;
+  background: rgb(245, 245, 245);
+  line-height: 36px;
+  color: #000000;
+  z-index: 999;
+
+  .actual_measurement {
+    width: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    height: 20px;
+    text-align: left;
+    margin-top: 8px;
+    float: left;
+    border-right: red;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      i {
+        color: green;
+      }
+    }
+
+    i {
+      color: #009581;
+      margin-right: 6px;
+    }
+
+    &.actived {
+      font-weight: bold;
+      color: green;
+
+      i {
+        color: green;
+      }
+    }
+  }
+
+  .location {
+    width: auto;
+    height: 20px;
+    padding-left: 16px;
+    padding-right: 10px;
+    margin-top: 8px;
+    float: left;
+    border-right: red;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+      color: green;
+      i {
+        color: green;
+      }
+    }
+    i {
+      font-size: 14px;
+      color: #009581;
+      margin-right: 6px;
+    }
+  }
+
+  .layer {
+    width: auto;
+    height: 20px;
+    margin-top: 8px;
+    padding-left: 16px;
+    padding-right: 10px;
+    float: left;
+    border-right: red;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+
+    i {
+      font-size: 14px;
+      color: #009581;
+      margin-right: 6px;
+    }
+
+    &:hover {
+      color: green;
+      i {
+        color: green;
+      }
+    }
+  }
+
+  .menuSetting {
+    width: auto;
+    height: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 8px;
+    float: left;
+    border-right: red;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+
+    i {
+      font-size: 14px;
+      color: #009581;
+      margin-right: 6px;
+      margin-left: 6px;
+    }
+
+    &:hover {
+      color: green;
+      i {
+        color: green;
+      }
+    }
+  }
+
+  .menuSettingDisable {
+    width: auto;
+    height: 20px;
+    margin-top: 8px;
+    float: left;
+    border-right: red;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    color: #009581;
+    i {
+      font-size: 14px;
+      color: #009581;
+      margin-right: 6px;
+    }
+
+    &:hover i {
+      color: #009581;
+    }
+  }
+}
 </style>

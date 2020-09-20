@@ -16,14 +16,14 @@
 }
 
 .el-checkbox.is-bordered.is-checked {
-   background: #05AF94;
+   background: #828887;
     color: #fff;
     border: 1px solid #05AF94;
 
 }
 
 .el-checkbox__input.is-checked+.el-checkbox__label {
-    color: #fff;
+    color: #009581;
 }
 
 
