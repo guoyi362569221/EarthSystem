@@ -106,6 +106,68 @@ export default {
       layerArray: [],
       checkedLayers: [1, 2],
       chart1Options: {
+        color: ["#87cefa", "#ff7f50", "#32cd32", "#da70d6",],
+        legend: {
+          bottom: '5',
+          x: 'center',
+          textStyle: {
+            color: '#ffffff',
+
+          },
+          data: ['工作中', '异常',],
+          formatter: function (name) {
+              return  name+':3个';
+          }
+        },
+        tooltip: {
+          trigger: 'item',
+          show: true
+        },
+        calculable: false,
+        series: [{
+
+          type: 'pie',
+          radius: ['40%', '70%'],
+          color: '#62b62f',
+          label: {
+            normal: {
+              position: 'center'
+            }
+          },
+          data: [{
+            value: 523,
+            name: '工作中',
+            label: {
+              normal: {
+                formatter: '工作中\n' + Math.round(523 / 821 * 100) + '%',
+                textStyle: {
+                  fontSize: 20,
+                  color: '#fff'
+                }
+              }
+            }
+          }, {
+            value: 298,
+            name: '异常',
+            label: {
+              normal: {
+                formatter: function () {
+                  return ''
+                },
+              }
+            },
+            itemStyle: {
+              normal: {
+                color: 'rgba(255,255,255,.2)'
+              },
+              emphasis: {
+                color: '#fff'
+              }
+            },
+          }]
+        }]
+      },
+      chart2Options: {
 
         color: ['#87cefa'],
         grid: {
@@ -116,13 +178,13 @@ export default {
         },
         tooltip: {
           trigger: 'item',
-          formatter: "{a}<br/>{b}<br/>{c}%"
+          formatter: "{b}:{c}个"
         },
         calculable: true,
         xAxis: [
           {
             type: 'category',
-            data: ['厦门第一医院', '厦门中山医院', '厦门中医院', '厦门第五医院',],
+            data: ['雨量计', '雪厚计', '空气温度计', '风速风向计','光通量计','土壤温度计','土壤湿度计','裂缝位移','孔隙压移传','变化梯度仪','道应变监测仪','动传感监测仪'],
             axisLine: {
               lineStyle: {
                 color: '#87cefa'
@@ -155,45 +217,19 @@ export default {
                 color: '#fff'
               },
               formatter: function (value) {
-                return value + "%"
+                return value + "个"
               },
             },
           }
         ],
         series: [
           {
-            name: '药占比',
             type: 'bar',
-            barWidth: 30,
-            data: [60, 80, 70, 50],
+            barWidth: 15,
+            data: [60, 80, 70, 50,60, 80, 70, 50,60, 80, 70, 50],
           },
         ]
       },
-      chart2Options: {
-        color: ["#87cefa", "#ff7f50", "#32cd32", "#da70d6",],
-        tooltip: {
-          trigger: 'item',
-          formatter: "{a}<br/>{b}<br/>{c}台"
-        },
-        calculable: true,
-        series: [
-          {
-            name: '手术工作量',
-            type: 'pie',
-            radius: [30, 110],
-            center: ['50%', '50%'],
-            roseType: 'area',
-            max: 40,
-            sort: 'ascending',
-            data: [
-              { value: 10, name: '厦门第一医院' },
-              { value: 5, name: '厦门中山医院' },
-              { value: 15, name: '厦门中医院' },
-              { value: 25, name: '厦门第五医院' },
-            ]
-          }
-        ]
-      }
     }
   },
   created() {
@@ -232,7 +268,7 @@ export default {
       this.$nextTick(() => {
         if (this.map && this.map.invalidateSize) {
           this.map.invalidateSize();
-          if (this.currBounds.length>0) {
+          if (this.currBounds.length > 0) {
             this.map.fitBounds(this.currBounds);
           }
         }

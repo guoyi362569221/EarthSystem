@@ -1,7 +1,8 @@
 <template>
   <div class="body-wrap">
     <div id="mapDiv">
-      <!-- 左边的站点管理 -->
+    </div>
+    <!-- 左边的站点管理 -->
       <div class="station-manage">
         <div class="station-manage-content">
           <div class="station-manage-content-head">
@@ -20,17 +21,11 @@
           </div>
         </div>
         <div class="station-manage-slider">
-          <i class="fa fa-chevron-left"></i>
+          <i class="fa fa-chevron-right"></i>
         </div>
       </div>
       <!-- 工具栏 -->
       <div class="tool_pull_down">
-        <div :class="['actual_measurement']">
-          <i class="fa fa-leaf"></i>测量距离
-        </div>
-        <div :class="['actual_measurement']">
-          <i class="fa fa-leaf"></i>清除测量
-        </div>
         <div class="location" v-popover:infomationPopover>
           <i class="fa fa-sitemap" aria-hidden="true"></i>
           <span class="tool_text">切换定位</span>
@@ -50,7 +45,6 @@
           <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
         </el-tabs>
       </div>
-    </div>
   </div>
 </template>
 
@@ -292,11 +286,17 @@ export default IndexJs;
 }
 
 .monitor-manage {
+  // position: absolute;
+  // top: 52px;
+  // bottom: 8px;
+  // left: 300px;
+  // right: 8px;
   position: absolute;
-  top: 52px;
-  bottom: 8px;
-  left: 300px;
-  right: 8px;
+  top: calc(50% - 250px);
+  left: calc(50% - 450px);
+  width: 900px;
+  height: 500px;
+  margin: 0px auto;
   background-color: rgb(245, 245, 245);
   z-index: 10000;
   padding: 8px;
