@@ -1,5 +1,5 @@
 <template lang="html">
-	<div class="content left-nav" :style="{'width':contentWidth,'top':headerHt+8+'px','height':win_size.height}">
+	<div class="contentMenu left-nav" :style="{'width':contentWidth,'top':headerHt+8+'px','height':win_size.height}">
 		<div class="top">
 			<div :class="['top-icon',{'isFold':isFold}]" @click="toggleShow">
 				<i class="fa fa-bars"></i>
@@ -89,7 +89,7 @@ export default {
         "calc(" +
         this.$_jQuery(window).height() +
         "px - " +
-        (this.headerHt + 5) +
+        (this.headerHt + 8) +
         "px)";
       if (this.$refs.leftNavScrollbar) {
         this.$refs.leftNavScrollbar.update();

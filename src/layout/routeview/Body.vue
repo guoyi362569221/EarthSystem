@@ -2,12 +2,10 @@
   <div class="main-body">
     <header-nav></header-nav>
     <div class="left-fixed-right-auto">
-      <div class="right-content" :style="{'bottom':'0px'}">
-        <div class="content" :style="{'top':headerHt+'px'}">
-          <keep-alive>
-            <router-view></router-view>
-          </keep-alive>
-        </div>
+      <div class="content" :style="{'top':headerHt+'px'}">
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
       </div>
     </div>
   </div>
@@ -45,5 +43,6 @@ export default {
   overflow: auto;
   color: #3d3a38;
   font-size: 14px;
+  border: 1px solid #089680;
 }
 </style>
