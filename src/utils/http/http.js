@@ -1,12 +1,12 @@
-import Vue form 'vue';
+import Vue from 'vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
-import axios from 'axios';
-import {dateUtils} from 'utils/dateUtils.js'
-import {gbs,cbs} from 'config/requestConfig.js';
 
 Vue.use(VueAxios, axios);
 
+
+// 动态设置本地和线上接口域名
+Vue.axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 /**
  * 封装axios的通用请求
@@ -14,20 +14,18 @@ Vue.use(VueAxios, axios);
  * @param  {string}   url       请求的接口URL
  * @param  {object}   data      传的参数，没有则传空对象
  * @param  {Function} sucFn        回调函数
- * @param  {boolean}   isRequireToken 是否需要携带token参数，为true，需要；false，不需要。一般除了登录，都需要
  * @param  {boolean} isLoading 是否显示加载状态
  */
 export function request({
-                            type,
-                            url,
-                            data,
-                            sucFn,
-                            errFn,
-                            requireToken,
-                            isLoading,
-                            headers,
-                            opts
-                        } = {}) {
+    type,
+    url,
+    data,
+    sucFn,
+    errFn,
+    isLoading,
+    headers,
+    opts
+} = {}) {
 
     let options = {
         method: type,
@@ -47,7 +45,7 @@ export function request({
     }
     else {
         // 分发显示加载样式任务
-        if(isLoading){
+        if (isLoading) {
             this.$store.dispatch('show_loading');
         }
         const axiosRequest = async () => {
@@ -55,18 +53,14 @@ export function request({
                 const res = await Vue.axios(options);
                 this.$store.dispatch('hide_loading');
                 let data = [];
-                if (res[gbs.api_status_key_field] === gbs.api_status_value_field) {
-                    if (gbs.api_data_field) {
-                        data = res[gbs.api_data_field];
-                    } else {
-                        data = res.data;
-                    }
-                    if (data[gbs.api_custom_data_field] !== undefined) {
-                        if (data[gbs.api_custom_status_key_field] === gbs.api_custom_status_value_field) {
-                            data = data[gbs.api_custom_data_field];
+                if (res['status'] === 200) {
+                    data = res.data;
+                    if (data['HttpContent'] !== undefined) {
+                        if (data['StatusCode'] === 200) {
+                            data = data['HttpContent'];
                             sucFn(data);
                         } else {
-                            this.$alert(data[gbs.api_custom_status_message], '提示', {
+                            this.$alert(data['HttpRequestMessage'], '提示', {
                                 confirmButtonText: '确定',
                                 type: 'warning'
                             });
@@ -80,27 +74,27 @@ export function request({
                     }
                 } else {
                     this.$store.dispatch('hide_loading');
-                    if (gbs.api_custom[res[gbs.api_status_key_field]]) {
-                        gbs.api_custom[res[gbs.api_status_key_field]].call(this, res);
-                    } else {
-                        if (errFn) {
-                            errFn.call(this, res.data);
-                        } else {
-                            cbs.statusError.call(this, res.data);
-                        }
-                    }
+                    this.$message({
+                        showClose: true,
+                        message: '返回错误：' + data['HttpRequestMessage'],
+                        type: 'error'
+                    });
                 }
             } catch (err) {
-                if (errFn){
+                if (errFn) {
                     errFn.call(this, []);
                 }
                 this.$store.dispatch('hide_loading');
-                cbs.requestError.call(this, err);
+                this.$message({
+                    showClose: true,
+                    message: '发生错误：' + (err.response ? err.response.status + ',' : '') + (err.response ? err.response.statusText : err),
+                    type: 'error'
+                });
             }
         };
         axiosRequest();
     }
-    
+
 }
 
 export function all(promises, sucFn, errFn) {
@@ -109,12 +103,12 @@ export function all(promises, sucFn, errFn) {
         try {
             const res = await Vue.axios.all(promises);
             this.$store.dispatch('hide_loading');
-            if (res.length > 0 && res[0].data[gbs.api_custom_data_field]) {
+            if (res.length > 0 && res[0].data['HttpContent']) {
                 res.forEach((item) => {
-                    if (item.data[gbs.api_custom_status_key_field] === gbs.api_custom_status_value_field) {
-                        item.data = item.data[gbs.api_custom_data_field];
+                    if (item.data['StatusCode'] === 200) {
+                        item.data = item.data['HttpContent'];
                     } else {
-                        this.$alert(item.data[gbs.api_custom_status_message], '提示', {
+                        this.$alert(item.data['HttpRequestMessage'], '提示', {
                             confirmButtonText: '确定',
                             type: 'warning'
                         });
@@ -126,14 +120,19 @@ export function all(promises, sucFn, errFn) {
                 });
                 sucFn(res);
             }
-            else
+            else {
                 sucFn(res);
-
+            }
         } catch (err) {
             this.$store.dispatch('hide_loading');
-            if (errFn)
+            if (errFn) {
                 errFn.call(this, []);
-            cbs.requestError.call(this, err);
+            }
+            this.$message({
+                showClose: true,
+                message: '发生错误：' + (err.response ? err.response.status + ',' : '') + (err.response ? err.response.statusText : err),
+                type: 'error'
+            });
         }
     };
     axiosAllRequest();

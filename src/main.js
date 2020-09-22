@@ -3,12 +3,11 @@ import App from './App.vue';
 import router from './router';
 import ElementUI from 'element-ui';
 import VueI18n from 'vue-i18n';
-
 import 'font-awesome/css/font-awesome.css';
-
 import $_jQuery from 'jquery';
 import store from './store';
 import less from 'less'
+import './register';
 
 Vue.use(less)
 Vue.use(VueI18n);
@@ -20,25 +19,9 @@ const i18n = new VueI18n({
 });
 
 Vue.config.productionTip = false;
-
 Vue.prototype['$_jQuery'] = $_jQuery;
-
 import VueECharts from 'vue-echarts';
 Vue.component('chart', VueECharts);
-
-//  添加全局处理窗口大小变更方法
-Vue.prototype['$$onResize'] = function (callFun) {
-	$_jQuery(window).resize(() => {
-		if (this._statue !== 'CLOSE') {
-			callFun.call(this);
-		}
-	});
-	this.$root.eventBus.$on('toggleMenu', () => {
-		if (this._statue !== 'CLOSE') {
-			callFun.call(this);
-		}
-	});
-};
 
 router.routerAsyncFun(function(router) {
 	// let vueApp = new Vue({

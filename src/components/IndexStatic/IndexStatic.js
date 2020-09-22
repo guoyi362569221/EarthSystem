@@ -116,7 +116,7 @@ export default {
           },
           data: ['工作中', '异常',],
           formatter: function (name) {
-              return  name+':3个';
+            return name + ':3个';
           }
         },
         tooltip: {
@@ -184,7 +184,7 @@ export default {
         xAxis: [
           {
             type: 'category',
-            data: ['雨量计', '雪厚计', '空气温度计', '风速风向计','光通量计','土壤温度计','土壤湿度计','裂缝位移','孔隙压移传','变化梯度仪','道应变监测仪','动传感监测仪'],
+            data: ['雨量计', '雪厚计', '空气温度计', '风速风向计', '光通量计', '土壤温度计', '土壤湿度计', '裂缝位移', '孔隙压移传', '变化梯度仪', '道应变监测仪', '动传感监测仪'],
             axisLine: {
               lineStyle: {
                 color: '#87cefa'
@@ -226,7 +226,7 @@ export default {
           {
             type: 'bar',
             barWidth: 15,
-            data: [60, 80, 70, 50,60, 80, 70, 50,60, 80, 70, 50],
+            data: [60, 80, 70, 50, 60, 80, 70, 50, 60, 80, 70, 50],
           },
         ]
       },
@@ -251,7 +251,23 @@ export default {
       $(".wrap ul").animate({ marginTop: -'30' * i + 'px' }, 1000)
     }, 2400);
 
-    this.initMap();
+    this.$nextTick(() => {
+      this.initMap();
+
+      debugger
+      this.$$SbCount({
+        data: {},
+        fn: data => {
+          if (data) {
+            debugger
+          }
+        },
+        errFun: err => {
+          debugger
+        }
+      });
+    });
+
   },
   watch: {
   },
