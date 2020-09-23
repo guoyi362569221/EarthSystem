@@ -1,12 +1,16 @@
 import Vue from 'vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
+import baseUrl from './url'
 
 Vue.use(VueAxios, axios);
 
-
+debugger
 // 动态设置本地和线上接口域名
-Vue.axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+axios.defaults.timeout = 60000
+axios.defaults.baseURL = baseUrl
+axios.defaults.headers.post['Content-Type'] = 'application/json'
+axios.defaults.headers.get['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8'
 
 /**
  * 封装axios的通用请求
@@ -26,13 +30,11 @@ export function request({
     headers,
     opts
 } = {}) {
-
     let options = {
         method: type,
         url: url,
         headers: headers && typeof headers === 'object' ? headers : {}
     };
-
     options[type === 'get' ? 'params' : 'data'] = data;
     //axios内置属性均可写在这里
     if (opts && typeof opts === 'object') {
@@ -50,6 +52,7 @@ export function request({
         }
         const axiosRequest = async () => {
             try {
+              debugger
                 const res = await Vue.axios(options);
                 this.$store.dispatch('hide_loading');
                 let data = [];

@@ -253,8 +253,6 @@ export default {
 
     this.$nextTick(() => {
       this.initMap();
-
-      debugger
       this.$$SbCount({
         data: {},
         fn: data => {

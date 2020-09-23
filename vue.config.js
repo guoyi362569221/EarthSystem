@@ -1,6 +1,7 @@
 const path = require('path')
 const debug = process.env.NODE_ENV !== 'production'
-
+debugger
+console.log(process)
 module.exports = {
     publicPath: '/', // 根域上下文目录
     outputDir: 'dist', // 构建输出目录
@@ -36,22 +37,22 @@ module.exports = {
     },
     pwa: { // 单页插件相关配置 https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa
     },
-    devServer: {
-        open: true,
-        host: 'localhost',
-        port: 8080,
-        https: false,
-        hotOnly: false,
-        proxy: { // 配置跨域
-            '/api': {
-                target: 'http://localhost:8080',
-                ws: true,
-                changOrigin: true,
-                pathRewrite: {
-                    '^/api': ''
-                }
-            }
-        },
-        before: app => { }
-    }
+    // devServer: {
+    //     open: true,
+    //     host: 'localhost',
+    //     port: 8080,
+    //     https: false,
+    //     hotOnly: false,
+    //     proxy: { // 配置跨域
+    //         '/api': {
+    //             target: 'http://localhost:8080',
+    //             ws: true,
+    //             changOrigin: true,
+    //             pathRewrite: {
+    //                 '^/api': ''
+    //             }
+    //         }
+    //     },
+    //     before: app => { }
+    // }
 }

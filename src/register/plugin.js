@@ -10,20 +10,17 @@ for (var i = 0; i < request.length; i++) {
 			plugins[request[i].list[j].method] = (function (n, m) {
 				return function ({type = request[n].list[m].type, path = request[n].list[m].path, data, fn, errFn, tokenFlag=false,showLoading=true, headers, opts} = {}) {
 					console.log(https)
-					console.log(request)
+          console.log(request)
 					return https.request.call(this, {
-						type,
-						path,
-						data,
-						fn,
-						errFn,
-						tokenFlag,
-						showLoading,
-						headers,
-						opts
+            type:type,
+            url:path,
+            data:data,
+            sucFn:fn,
+            errFn:errFn,
+            isLoading:showLoading,
+            headers:headers,
+            opts:opts
 					});
-
-
 				};
 			})(i, j);
 
