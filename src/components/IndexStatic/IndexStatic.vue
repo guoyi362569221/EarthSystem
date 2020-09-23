@@ -10,7 +10,7 @@
             <!-- <img src="./assets/images/info_1.png" class="left text01_img" /> -->
             <div class="left text01_div">
               <p>公告总数(次)</p>
-              <p>1235</p>
+              <p>{{staticInfo.ggzs}}</p>
             </div>
           </div>
           <div class="con_div_text01 right">
@@ -18,7 +18,7 @@
             <!-- <img src="./assets/images/info_2.png" class="left text01_img" /> -->
             <div class="left text01_div">
               <p>监测点总数(个)</p>
-              <p>235</p>
+              <p>{{staticInfo.jcdzs}}</p>
             </div>
           </div>
         </div>
@@ -28,7 +28,7 @@
             <!-- <img src="./assets/images/info_3.png" class="left text01_img" /> -->
             <div class="left text01_div">
               <p>设备类型总数(个)</p>
-              <p class="sky">12356</p>
+              <p class="sky">{{staticInfo.sblxzs}}</p>
             </div>
           </div>
           <div class="con_div_text01 right">
@@ -36,7 +36,7 @@
             <!-- <img src="./assets/images/info_4.png" class="left text01_img" /> -->
             <div class="left text01_div">
               <p>设备总台数(台)</p>
-              <p class="sky">12356</p>
+              <p class="sky">{{staticInfo.sbzts}}</p>
             </div>
           </div>
         </div>
@@ -46,7 +46,7 @@
             <!-- <img src="./assets/images/info_5.png" class="left text01_img" /> -->
             <div class="left text01_div">
               <p>历史采集数据(条)</p>
-              <p class="org">12356</p>
+              <p class="org">{{staticInfo.lscjsj}}</p>
             </div>
           </div>
           <div class="con_div_text01 right">
@@ -54,7 +54,7 @@
             <!-- <img src="./assets/images/info_6.png" class="left text01_img" /> -->
             <div class="left text01_div">
               <p>今日采集数据(条)</p>
-              <p class="org">12356</p>
+              <p class="org">{{staticInfo.jrcjsj}}</p>
             </div>
           </div>
         </div>

@@ -116,7 +116,7 @@ export default {
           },
           data: ['工作中', '异常',],
           formatter: function (name) {
-            return name + ':3个';
+            return name + ':0个';
           }
         },
         tooltip: {
@@ -135,11 +135,11 @@ export default {
             }
           },
           data: [{
-            value: 523,
+            value: 0,
             name: '工作中',
             label: {
               normal: {
-                formatter: '工作中\n' + Math.round(523 / 821 * 100) + '%',
+                formatter: '工作中\n' + Math.round(0 * 100) + '%',
                 textStyle: {
                   fontSize: 20,
                   color: '#fff'
@@ -147,7 +147,7 @@ export default {
               }
             }
           }, {
-            value: 298,
+            value: 0,
             name: '异常',
             label: {
               normal: {
@@ -230,42 +230,39 @@ export default {
           },
         ]
       },
+      staticInfo: {
+        ggzs: 0,
+        jcdzs: 0,
+        sblxzs: 0,
+        sbzts: 0,
+        lscjsj: 0,
+        jrcjsj: 0
+      }
     }
   },
   created() {
     this.$$onResize(this.onResize);
   },
   mounted() {
-    let $ = this.$_jQuery
-    var html = $(".wrap ul").html()
-    $(".wrap ul").append(html).append(html).append(html)
-    var ls = $(".wrap li").length / 2 + 1
-    let i = 0
-    setInterval(function () {
-      i++
-      if (i == ls) {
-        i = 1
-        $(".wrap ul").css({ marginTop: 0 })
-        $(".wrap ul").animate({ marginTop: -'30' * i + 'px' }, 1000)
-      }
-      $(".wrap ul").animate({ marginTop: -'30' * i + 'px' }, 1000)
-    }, 2400);
+    // let $ = this.$_jQuery
+    // var html = $(".wrap ul").html()
+    // $(".wrap ul").append(html).append(html).append(html)
+    // var ls = $(".wrap li").length / 2 + 1
+    // let i = 0
+    // setInterval(function () {
+    //   i++
+    //   if (i == ls) {
+    //     i = 1
+    //     $(".wrap ul").css({ marginTop: 0 })
+    //     $(".wrap ul").animate({ marginTop: -'30' * i + 'px' }, 1000)
+    //   }
+    //   $(".wrap ul").animate({ marginTop: -'30' * i + 'px' }, 1000)
+    // }, 2400);
 
     this.$nextTick(() => {
       this.initMap();
-      this.$$SbCount({
-        data: {},
-        fn: data => {
-          if (data) {
-            debugger
-          }
-        },
-        errFun: err => {
-          debugger
-        }
-      });
+      this.queryMain();
     });
-
   },
   watch: {
   },
@@ -588,6 +585,51 @@ export default {
             break;
         }
       }
+    },
+
+    queryMain() {
+      let that = this;
+      //查询设备类型总数和设备总台数
+      that.$$SbCount({
+        data: {},
+        fn: function (data) {
+          if (data) {
+            that.staticInfo.sblxzs = data['lxCount'];
+            that.staticInfo.sbzts = data['sbCount'];
+          }
+        },
+        errFun: function () {
+          that.staticInfo.sblxzs = 0;
+          that.staticInfo.sbzts = 0;
+        }
+      });
+      //历史采集数据和今日采集数据
+      that.$$DataCount({
+        data: {},
+        fn: function (data) {
+          if (data) {
+            that.staticInfo.lscjsj = data['allCount'];
+            that.staticInfo.jrcjsj = data['todayCount'];
+          }
+        },
+        errFun: function () {
+          that.staticInfo.lscjsj = 0;
+          that.staticInfo.jrcjsj = 0;
+        }
+      });
+      //仪器状态统计
+      that.$$StatusCount({
+        fn: function (data) {
+          if (data) {
+            that.staticInfo.sblxzs = data['lxCount'];
+            that.staticInfo.sbzts = data['sbCount'];
+          }
+        },
+        errFun: function () {
+          that.staticInfo.sblxzs = 0;
+          that.staticInfo.sbzts = 0;
+        }
+      });
     }
   },
   activated: function () {

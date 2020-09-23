@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
-import baseUrl from './url'
+import {baseUrl} from './url'
 
 Vue.use(VueAxios, axios);
 
