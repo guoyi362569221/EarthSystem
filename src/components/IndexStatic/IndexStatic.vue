@@ -154,43 +154,59 @@
             </div>
             <p id="lineChart2" class="p_chart">
               <table class="t_table">
+                <!-- warningInfo: {
+                  yesterday: {
+                    "蓝色":1,
+                    "黄色":0,
+                    "橙色":0,
+                    "红色":0,
+                    total: 0
+                  },
+                  today: {
+                    "蓝色":1,
+                    "黄色":0,
+                    "橙色":0,
+                    "红色":0,
+                    total: 0
+                  },
+                } -->
                   <thead>
                       <tr>
                           <th>预警等级</th>
-                          <th>昨日预警</th>
-                          <th>今日预警</th>
+                          <th>昨日预警(次)</th>
+                          <th>今日预警(次)</th>
                           <th>同比</th>  
                       </tr>
                   </thead>
                   <tbody>
                       <tr>
-                          <td>注意级</td>
-                          <td>0</td>
-                          <td>0</td>
-                          <td>0</td>
+                          <td>蓝色</td>
+                          <td>{{warningInfo.yesterday['蓝色']}}</td>
+                          <td>{{warningInfo.today['蓝色']}}</td>
+                          <td>{{warningInfo.today['蓝色']-warningInfo.yesterday['蓝色']}}</td>
                       </tr>
                       <tr>
-                          <td>警戒级</td>
-                          <td>0</td>
-                          <td>0</td>
-                          <td>0</td>
+                          <td>黄色</td>
+                          <td>{{warningInfo.yesterday['黄色']}}</td>
+                          <td>{{warningInfo.today['黄色']}}</td>
+                          <td>{{warningInfo.today['黄色']-warningInfo.yesterday['黄色']}}</td>
                       </tr>
                       <tr>
-                          <td>预警级</td>
-                          <td>0</td>
-                          <td>0</td>
-                          <td>0</td>
+                          <td>橙色</td>
+                          <td>{{warningInfo.yesterday['橙色']}}</td>
+                          <td>{{warningInfo.today['橙色']}}</td>
+                          <td>{{warningInfo.today['橙色']-warningInfo.yesterday['橙色']}}</td>
                       </tr>
                       <tr>
-                          <td>报警级</td>
-                          <td>0</td>
-                          <td>0</td>
-                          <td>0</td>
+                          <td>红色</td>
+                          <td>{{warningInfo.yesterday['红色']}}</td>
+                          <td>{{warningInfo.today['红色']}}</td>
+                          <td>{{warningInfo.today['红色']-warningInfo.yesterday['红色']}}</td>
                       </tr>
                       <tr>
                           <td>合计</td>
-                          <td>0</td>
-                          <td>0</td>
+                          <td>{{warningInfo.yesterday['蓝色']+warningInfo.yesterday['黄色']+warningInfo.yesterday['橙色']+warningInfo.yesterday['红色']}}</td>
+                          <td>{{warningInfo.today['蓝色']+warningInfo.today['黄色']+warningInfo.today['橙色']+warningInfo.today['红色']}}</td>
                           <td>-</td>
                       </tr>
                   </tbody>

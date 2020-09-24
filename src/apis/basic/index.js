@@ -22,6 +22,11 @@ export default [
 		path: SERVER_API_PATH + 'statistics/sbTypeCountStatistic',
 		type: 'get',
 	}, {
+		name: '首页--报警信息统计',
+		method: 'WarningCount',
+		path: SERVER_API_PATH + 'statistics/warningCount',
+		type: 'get',
+	}, {
 		name: '首页--地图展示mark',
 		method: 'DeviceList',
 		path: SERVER_API_PATH + 'statistics/deviceList',

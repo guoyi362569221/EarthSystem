@@ -123,7 +123,6 @@ export default {
       }
     },
     handleEdit(index){
-      debugger
       this.$router.push({
         name: 'AAAAA',
         params: { data: this.tableData[index] }

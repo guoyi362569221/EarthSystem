@@ -5,7 +5,6 @@ import {baseUrl} from './url'
 
 Vue.use(VueAxios, axios);
 
-debugger
 // 动态设置本地和线上接口域名
 axios.defaults.timeout = 60000
 axios.defaults.baseURL = baseUrl
@@ -52,7 +51,6 @@ export function request({
         }
         const axiosRequest = async () => {
             try {
-              debugger
                 const res = await Vue.axios(options);
                 this.$store.dispatch('hide_loading');
                 let data = [];

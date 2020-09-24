@@ -133,7 +133,6 @@ export default {
         for (let i = 0; i < that.mapOptions.length; i++) {
           for (let j = 0; j < that.checkedLayers.length; j++) {
             if (that.mapOptions[i].id === that.checkedLayers[j]) {
-              debugger
               switch (that.mapOptions[i].type) {
                 case "tdt":
                   var layer = L.tileLayer(that.mapOptions[i].url, {

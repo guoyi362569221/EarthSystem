@@ -116,7 +116,7 @@ export default {
           },
           data: ['工作中', '异常',],
           formatter: function (name) {
-            return name + ':0个';
+            return name + ' ：0个';
           }
         },
         tooltip: {
@@ -226,7 +226,7 @@ export default {
           {
             type: 'bar',
             barWidth: 15,
-            data: [60, 80, 70, 50, 60, 80, 70, 50, 60, 80, 70, 50],
+            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50],
           },
         ]
       },
@@ -237,6 +237,22 @@ export default {
         sbzts: 0,
         lscjsj: 0,
         jrcjsj: 0
+      },
+      warningInfo: {
+        yesterday: {
+          "蓝色": 0,
+          "黄色": 0,
+          "橙色": 0,
+          "红色": 0,
+          total: 0
+        },
+        today: {
+          "蓝色": 0,
+          "黄色": 0,
+          "橙色": 0,
+          "红色": 0,
+          total: 0
+        },
       }
     }
   },
@@ -357,7 +373,6 @@ export default {
       var markerLayer = new L.LayerGroup();
       L.geoJson(this.monitorJCZData, {
         pointToLayer: function (feature) {
-          debugger;
           let children = feature.properties.children;
           let unit = feature.properties.unit;
           var name = feature.properties.name;
@@ -431,7 +446,6 @@ export default {
 
         for (let i = 0; i < that.markInfos.length; i++) {
           if (that.markInfos[i]["number"] === number) {
-            debugger;
             that.markerPopuFun(that.markInfos[i], name, unit);
             break;
           }
@@ -503,7 +517,6 @@ export default {
     },
 
     onLayerChange(data) {
-      debugger
       let that = this;
       if (data) {
         let id = data['id'];
@@ -621,13 +634,451 @@ export default {
       that.$$StatusCount({
         fn: function (data) {
           if (data) {
-            that.staticInfo.sblxzs = data['lxCount'];
-            that.staticInfo.sbzts = data['sbCount'];
+            // that.staticInfo.sblxzs = data['lxCount'];
+            // that.staticInfo.sbzts = data['sbCount'];
+            let ycCount = data['ycCount'];
+            let zcCount = data['zcCount'];
+            that.chart1Options = {
+              color: ["#87cefa", "#ff7f50", "#32cd32", "#da70d6",],
+              legend: {
+                bottom: '5',
+                x: 'center',
+                textStyle: {
+                  color: '#ffffff',
+
+                },
+                data: ['工作中', '异常',],
+                formatter: function (name) {
+                  if (name === '工作中') {
+                    return name + '：' + zcCount + '个';
+                  } else if (name === '异常') {
+                    return name + '：' + ycCount + '个';
+                  }
+                }
+              },
+              tooltip: {
+                trigger: 'item',
+                show: true
+              },
+              calculable: false,
+              series: [{
+
+                type: 'pie',
+                radius: ['40%', '70%'],
+                color: '#62b62f',
+                label: {
+                  normal: {
+                    position: 'center'
+                  }
+                },
+                data: [{
+                  value: zcCount,
+                  name: '工作中',
+                  label: {
+                    normal: {
+                      formatter: '工作中\n' + Math.round((zcCount + ycCount) === 0 ? 0 : (zcCount / (zcCount + ycCount) * 100)) + '%',
+                      textStyle: {
+                        fontSize: 20,
+                        color: '#fff'
+                      }
+                    }
+                  }
+                }, {
+                  value: ycCount,
+                  name: '异常',
+                  label: {
+                    normal: {
+                      formatter: function () {
+                        return ''
+                      },
+                    }
+                  },
+                  itemStyle: {
+                    normal: {
+                      color: 'rgba(255,255,255,.2)'
+                    },
+                    emphasis: {
+                      color: '#fff'
+                    }
+                  },
+                }]
+              }]
+            }
+          } else {
+            that.chart1Options = {
+              color: ["#87cefa", "#ff7f50", "#32cd32", "#da70d6",],
+              legend: {
+                bottom: '5',
+                x: 'center',
+                textStyle: {
+                  color: '#ffffff',
+
+                },
+                data: ['工作中', '异常',],
+                formatter: function (name) {
+                  return name + ' ：0个';
+                }
+              },
+              tooltip: {
+                trigger: 'item',
+                show: true
+              },
+              calculable: false,
+              series: [{
+
+                type: 'pie',
+                radius: ['40%', '70%'],
+                color: '#62b62f',
+                label: {
+                  normal: {
+                    position: 'center'
+                  }
+                },
+                data: [{
+                  value: 0,
+                  name: '工作中',
+                  label: {
+                    normal: {
+                      formatter: '工作中\n' + Math.round(0 * 100) + '%',
+                      textStyle: {
+                        fontSize: 20,
+                        color: '#fff'
+                      }
+                    }
+                  }
+                }, {
+                  value: 0,
+                  name: '异常',
+                  label: {
+                    normal: {
+                      formatter: function () {
+                        return ''
+                      },
+                    }
+                  },
+                  itemStyle: {
+                    normal: {
+                      color: 'rgba(255,255,255,.2)'
+                    },
+                    emphasis: {
+                      color: '#fff'
+                    }
+                  },
+                }]
+              }]
+            }
           }
         },
         errFun: function () {
-          that.staticInfo.sblxzs = 0;
-          that.staticInfo.sbzts = 0;
+          that.chart1Options = {
+            color: ["#87cefa", "#ff7f50", "#32cd32", "#da70d6",],
+            legend: {
+              bottom: '5',
+              x: 'center',
+              textStyle: {
+                color: '#ffffff',
+
+              },
+              data: ['工作中', '异常',],
+              formatter: function (name) {
+                return name + ' ：0个';
+              }
+            },
+            tooltip: {
+              trigger: 'item',
+              show: true
+            },
+            calculable: false,
+            series: [{
+
+              type: 'pie',
+              radius: ['40%', '70%'],
+              color: '#62b62f',
+              label: {
+                normal: {
+                  position: 'center'
+                }
+              },
+              data: [{
+                value: 0,
+                name: '工作中',
+                label: {
+                  normal: {
+                    formatter: '工作中\n' + Math.round(0 * 100) + '%',
+                    textStyle: {
+                      fontSize: 20,
+                      color: '#fff'
+                    }
+                  }
+                }
+              }, {
+                value: 0,
+                name: '异常',
+                label: {
+                  normal: {
+                    formatter: function () {
+                      return ''
+                    },
+                  }
+                },
+                itemStyle: {
+                  normal: {
+                    color: 'rgba(255,255,255,.2)'
+                  },
+                  emphasis: {
+                    color: '#fff'
+                  }
+                },
+              }]
+            }]
+          }
+        }
+      });
+      //设备类型统计
+      that.$$SbTypeCountStatistic({
+        data: {},
+        fn: function (data) {
+          if (data) {
+            let keys = [];
+            let values = [];
+            for (let key in data) {
+              keys.push(key);
+              values.push(data[key]);
+            }
+            that.chart2Options = {
+              color: ['#87cefa'],
+              grid: {
+                left: '2%',
+                right: '2%',
+                bottom: '2%',
+                containLabel: true
+              },
+              tooltip: {
+                trigger: 'item',
+                formatter: "{b}:{c}个"
+              },
+              calculable: true,
+              xAxis: [
+                {
+                  type: 'category',
+                  data: keys,
+                  axisLine: {
+                    lineStyle: {
+                      color: '#87cefa'
+                    },
+                  },
+                  axisLabel: {
+                    interval: 0,
+                    rotate: 40,
+
+                    textStyle: {
+                      color: '#fff',
+                      fontSize: 12
+                    }
+                  }
+                }
+              ],
+              yAxis: [
+                {
+                  type: 'value',
+                  axisLine: {
+                    lineStyle: {
+                      color: '#87cefa'
+                    },
+                  },
+                  splitLine: {
+                    "show": false
+                  },
+                  axisLabel: {
+                    textStyle: {
+                      color: '#fff'
+                    },
+                    formatter: function (value) {
+                      return value + "个"
+                    },
+                  },
+                }
+              ],
+              series: [
+                {
+                  type: 'bar',
+                  barWidth: 15,
+                  data: values
+                },
+              ]
+            }
+          } else {
+            that.chart2Options = {
+              color: ['#87cefa'],
+              grid: {
+                left: '2%',
+                right: '2%',
+                bottom: '2%',
+                containLabel: true
+              },
+              tooltip: {
+                trigger: 'item',
+                formatter: "{b}:{c}个"
+              },
+              calculable: true,
+              xAxis: [
+                {
+                  type: 'category',
+                  data: ['雨量计', '雪厚计', '空气温度计', '风速风向计', '光通量计', '土壤温度计', '土壤湿度计', '裂缝位移', '孔隙压移传', '变化梯度仪', '道应变监测仪', '动传感监测仪'],
+                  axisLine: {
+                    lineStyle: {
+                      color: '#87cefa'
+                    },
+                  },
+                  axisLabel: {
+                    interval: 0,
+                    rotate: 40,
+
+                    textStyle: {
+                      color: '#fff',
+                      fontSize: 13
+                    }
+                  }
+                }
+              ],
+              yAxis: [
+                {
+                  type: 'value',
+                  axisLine: {
+                    lineStyle: {
+                      color: '#87cefa'
+                    },
+                  },
+                  splitLine: {
+                    "show": false
+                  },
+                  axisLabel: {
+                    textStyle: {
+                      color: '#fff'
+                    },
+                    formatter: function (value) {
+                      return value + "个"
+                    },
+                  },
+                }
+              ],
+              series: [
+                {
+                  type: 'bar',
+                  barWidth: 15,
+                  data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50],
+                },
+              ]
+            }
+          }
+        },
+        errFun: function () {
+          that.chart2Options = {
+            color: ['#87cefa'],
+            grid: {
+              left: '2%',
+              right: '2%',
+              bottom: '2%',
+              containLabel: true
+            },
+            tooltip: {
+              trigger: 'item',
+              formatter: "{b}:{c}个"
+            },
+            calculable: true,
+            xAxis: [
+              {
+                type: 'category',
+                data: ['雨量计', '雪厚计', '空气温度计', '风速风向计', '光通量计', '土壤温度计', '土壤湿度计', '裂缝位移', '孔隙压移传', '变化梯度仪', '道应变监测仪', '动传感监测仪'],
+                axisLine: {
+                  lineStyle: {
+                    color: '#87cefa'
+                  },
+                },
+                axisLabel: {
+                  interval: 0,
+                  rotate: 40,
+
+                  textStyle: {
+                    color: '#fff',
+                    fontSize: 13
+                  }
+                }
+              }
+            ],
+            yAxis: [
+              {
+                type: 'value',
+                axisLine: {
+                  lineStyle: {
+                    color: '#87cefa'
+                  },
+                },
+                splitLine: {
+                  "show": false
+                },
+                axisLabel: {
+                  textStyle: {
+                    color: '#fff'
+                  },
+                  formatter: function (value) {
+                    return value + "个"
+                  },
+                },
+              }
+            ],
+            series: [
+              {
+                type: 'bar',
+                barWidth: 15,
+                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50],
+              },
+            ]
+          }
+        }
+      });
+      //报警信息统计
+      that.$$WarningCount({
+        data: {},
+        fn: function (data) {
+          if (data) {
+            that.warningInfo = data;
+          } else {
+            that.warningInfo = {
+              yesterday: {
+                "蓝色": 0,
+                "黄色": 0,
+                "橙色": 0,
+                "红色": 0,
+                total: 0
+              },
+              today: {
+                "蓝色": 0,
+                "黄色": 0,
+                "橙色": 0,
+                "红色": 0,
+                total: 0
+              },
+            }
+          }
+        },
+        errFun: function () {
+          that.warningInfo = {
+            yesterday: {
+              "蓝色": 0,
+              "黄色": 0,
+              "橙色": 0,
+              "红色": 0,
+              total: 0
+            },
+            today: {
+              "蓝色": 0,
+              "黄色": 0,
+              "橙色": 0,
+              "红色": 0,
+              total: 0
+            },
+          }
         }
       });
     }

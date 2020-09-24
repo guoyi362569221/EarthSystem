@@ -214,7 +214,6 @@ export default {
      */
     setDialogInfo(cmditem) {
       if (!cmditem) {
-        console.log("test");
         this.$message("菜单选项缺少command属性");
         return;
       }
@@ -250,12 +249,6 @@ export default {
           break;
       }
     },
-
-    /**
-     * 修改密码
-     * @param  {object} userinfo 当前修改密码的表单信息
-     */
-    updUserPass(userinfo) {},
 
     dealWarnData(res) {
       //处理预警的数据

@@ -46,7 +46,6 @@ function parseRouter(cfgs) {
 
 async function routerAsyncFun(callfun) {
     try {
-        console.log(Vue);
         // const res = await promiseDef;
         // let routes = env['NODE_ENV'] === 'development' ? res.default : res.data;
 
@@ -195,7 +194,6 @@ async function routerAsyncFun(callfun) {
             routes: routes
         }))
     } catch (err) {
-        console.log(err);
         callfun(new Router({
             routes: []
         }))
