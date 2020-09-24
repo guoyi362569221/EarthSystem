@@ -1,13 +1,13 @@
 import Vue from 'vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
-import {baseUrl} from './url'
+import {serverUrl} from '../../config/index'
 
 Vue.use(VueAxios, axios);
 
 // 动态设置本地和线上接口域名
 axios.defaults.timeout = 60000
-axios.defaults.baseURL = baseUrl
+axios.defaults.baseURL = serverUrl
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 axios.defaults.headers.get['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8'
 
