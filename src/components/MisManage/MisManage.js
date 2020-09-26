@@ -2,6 +2,7 @@ export default {
   components: {},
   data: function () {
     return {
+      tableHeight:200,
       levelList: [],
       tableData: [{
         date: '2016-05-02',
@@ -99,7 +100,6 @@ export default {
     this.getBreadcrumb()
   },
   mounted() {
-
   },
   watch: {
     $route() {
@@ -108,6 +108,13 @@ export default {
   },
   methods: {
     onResize() {
+      this.$nextTick(() => {
+        this.calcTableHeight();
+      });
+    },
+    calcTableHeight(){
+      debugger
+      this.tableHeight = this.$_jQuery(".content").height() - 32 - this.$_jQuery(".seach-container").height() - 18 - 106;
     },
     getBreadcrumb() {
       this.levelList = [];
@@ -124,10 +131,9 @@ export default {
     },
     handleEdit(index){
       this.$router.push({
-        name: 'AAAAA',
+        name: '预警列表新增',
         params: { data: this.tableData[index] }
       })
-      this.$store.commit("breadListStateAdd", {name:"新增",path:"AAAAA"});
     }
   },
   activated: function () {

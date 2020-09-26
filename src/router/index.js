@@ -152,10 +152,11 @@ async function routerAsyncFun(callfun) {
           },
           {
             "path": "AAAAA",
-            "name": "AAAAA",
+            "name": "预警列表新增",
             "hidden": true,
             "icon": "fa fa-map",
-            "component": "_404"
+            "component": "_404",
+            "meta": { "routerNoChange": true }
           },
           {
             "path":"BBBBB",

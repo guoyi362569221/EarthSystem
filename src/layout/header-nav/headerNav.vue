@@ -52,7 +52,6 @@
 </template>
 
 <script>
-import { utils } from "../../utils/utils";
 import _ from "lodash";
 import { dateUtils } from "../../utils/dateUtils.js";
 
@@ -177,16 +176,6 @@ export default {
         });
       }
     },
-    calcWidthIsOver() {
-      let wth = this.$_jQuery(window).width();
-      let logoWidth = 475;
-      let userInfoWidth = wth - (logoWidth + 100);
-      if (this.headMenuWidth * (this.routeList.length + 1) > userInfoWidth) {
-        this.isMore = true;
-      } else {
-        this.isMore = false;
-      }
-    },
 
     /**
      * 退出登录
@@ -208,121 +197,7 @@ export default {
         // });
       });
     },
-    /**
-     * 弹出框-修改密码或者系统设置
-     * @param {string} cmditem 弹框类型
-     */
-    setDialogInfo(cmditem) {
-      if (!cmditem) {
-        this.$message("菜单选项缺少command属性");
-        return;
-      }
-      switch (cmditem) {
-        case "info":
-          this.$router.push({
-            path: "/mng/edit",
-            // query: {
-            //     id: this.$store.state.user.userinfo.info['Id']
-            // }
-          });
-          break;
-        case "pass":
-          this.dialog.show_pass = true;
-          this.dialog.title = "修改密码";
-          this.dialog.user_info = {
-            name: "ASDFG",
-            oldPassword: "",
-            newPassword: "",
-            password_confirm: "",
-          };
-          break;
-        case "set":
-          this.$router.push({
-            path: "/mng/edit",
-            // query: {
-            //     id: this.$store.state.user.userinfo.info['Id']
-            // }
-          });
-          break;
-        case "logout":
-          this.logout();
-          break;
-      }
-    },
-
-    dealWarnData(res) {
-      //处理预警的数据
-
-      let predRes = res[0].data || [];
-      this.provPredTableData = this.dealForecast(predRes);
-    },
-    dealForecast(predRes) {
-      //处理预报的预警数据
-      let tableData = [];
-      let provinceCode = this.config.provinceCode;
-      for (let i = 0; i < predRes.length; i++) {
-        let obj = {};
-        obj["type"] =
-          predRes[i].warningcitycode === provinceCode ? "省级" : "市级";
-        obj["warnTime"] = predRes[i]["warningdate"].split("T")[0];
-        obj["timeRange"] =
-          predRes[i]["starttime"].split("T")[0] +
-          " 至 " +
-          predRes[i]["endtime"].split("T")[0];
-        obj["level"] = this.setLevel(predRes[i]["warninglevel"]).level;
-        obj["levelColor"] = this.setLevel(predRes[i]["warninglevel"]).color;
-        obj["primarypollutant"] = predRes[i]["primarypollutant"]
-          ? utils.addSubToLabel(predRes[i]["primarypollutant"].toUpperCase())
-          : "-";
-        obj["modelname"] = predRes[i]["modelname"];
-        let citys = predRes[i]["cities"].split(",");
-        obj["cityname"] = _.uniq(citys);
-        tableData.push(obj);
-      }
-      return tableData;
-    },
-    dealMonitor(res) {
-      //处理实况的预警数据
-      let arr = [];
-      for (let i = 0; i < res.length; i++) {
-        let obj = {};
-        let sTime = dateUtils.strToDate(res[i]["starttime"].replace("T", " "));
-        let eTime = dateUtils.strToDate(res[i]["endtime"].replace("T", " "));
-        obj["timeRange"] =
-          dateUtils.dateToStr("YYYY-MM-DD HH时", sTime) +
-          " 至 " +
-          dateUtils.dateToStr("YYYY-MM-DD HH时", eTime);
-        obj["cityname"] = [res[i]["warningcity"]];
-        obj["primarypollutant"] = res[i]["primarypollutant"]
-          ? utils.addSubToLabel(res[i]["primarypollutant"])
-          : "-";
-        obj["warnTime"] = dateUtils.dateToStr(
-          "YYYY-MM-DD HH时",
-          dateUtils.strToDate(res[i]["warningdate"].replace("T", " "))
-        );
-        obj["warnContent"] = this.config.warnContent;
-
-        arr.push(obj);
-      }
-      return arr;
-    },
-    setLevel(val) {
-      let obj = {
-        color: "",
-        level: "",
-      };
-      let colors = ["#fc0409", "orange", "#f9e50e", "#0552ff"];
-      let levels = ["Ⅰ级", "Ⅱ级", "Ⅲ级", "Ⅳ级"];
-      let value = Number(val);
-      if (!isNaN(value)) {
-        obj["color"] = colors[value - 1];
-        obj["level"] = levels[value - 1];
-      }
-      obj["color"] = obj["color"] ? obj["color"] : "#fff";
-      obj["level"] = obj["level"] ? obj["level"] : val;
-      return obj;
-    },
-  },
+   },
   created() {
     this.allMenu = [];
     let routes = this.$router.options.routes;

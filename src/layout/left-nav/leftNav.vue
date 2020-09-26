@@ -102,7 +102,7 @@ export default {
         }
         setTimeout(() => {
           this.$router.push(item);
-        }, 300);
+        }, 100);
       }
     },
     setTranistion(item, parent) {
@@ -123,7 +123,7 @@ export default {
           {
             top: num * 50,
           },
-          300
+          100
         );
     },
     getColors(idx) {
@@ -241,10 +241,11 @@ export default {
   },
   watch: {
     $route(to, from, next) {
-      setTimeout(() => {
-        this.setCurRouter(to);
-      }, 300);
-
+      if (!to.meta.routerNoChange) {
+        setTimeout(() => {
+          this.setCurRouter(to);
+        }, 1000);
+      } 
       if (to.matched[0].path !== from.matched[0].path) {
         let newRoutes = this.$router.options.routes.filter((item) => {
           return item.path === to.matched[0].path;

@@ -1,19 +1,10 @@
 <template>
-  <div>
-    <!-- <div class="crumbs">
-        <el-breadcrumb separator-class="el-icon-arrow-right">
-          <span class="fa fa-tachometer" style="float:left;margin-right:10px;font-size:14px;color:rgb(17, 161, 138);"></span>
-          <el-breadcrumb-item v-for="item in levelList" :key="item.path">{{item.name}}</el-breadcrumb-item>
-        </el-breadcrumb>
-    </div> -->
+  <div class="contentPanel">
     <!-- 搜索框 -->
     <div class="seach-container">
       <div class="flex flex-wrap justify-between">
-        <div class="column-tit">
-          <img src="./assets/images/dot1.png" alt class="mr-10" />
-          <b class="vertical-m">检索</b>
-          <img src="./assets/images/dot2.png" alt class="ml-10" />
-          <slot name="extra"></slot>
+        <div class="customer-title">
+          <i class="fa fa-search">&nbsp;&nbsp;&nbsp;&nbsp;检索</i>
         </div>
         <!-- 项目 -->
         <div class="form-container">
@@ -22,17 +13,10 @@
               <span class="letterspance2">项&nbsp;&nbsp;&nbsp;目</span>
             </div>
             <div class="form-box-item-item">
-              <el-cascader
-                filterable
-                :show-all-levels="false"
-                :options="listChildOrgInfoList"
-                v-model="projectId"
-                :props="defaultProps1"
-                @change="projectchange"
+              <el-input
                 size="small"
-                placeholder="请选择项目"
-                clearable
-              ></el-cascader>
+                placeholder="请输入项目计划名称"
+              ></el-input>
             </div>
           </div>
         </div>
@@ -79,45 +63,169 @@
               <span class="letterspance2">项目计划名称</span>
             </div>
             <div class="form-box-item-item">
-              <el-input size="small" placeholder="请输入项目计划名称"></el-input>
+              <el-input
+                size="small"
+                placeholder="请输入项目计划名称"
+              ></el-input>
+            </div>
+          </div>
+        </div>
+        <!-- 项目计划名称 -->
+        <div class="form-container">
+          <div class="form-box-item">
+            <div class="form-box-item-label">
+              <span class="letterspance2">项目计划名称</span>
+            </div>
+            <div class="form-box-item-item">
+              <el-input
+                size="small"
+                placeholder="请输入项目计划名称"
+              ></el-input>
+            </div>
+          </div>
+        </div>
+        <!-- 项目计划名称 -->
+        <div class="form-container">
+          <div class="form-box-item">
+            <div class="form-box-item-label">
+              <span class="letterspance2">项目计划名称</span>
+            </div>
+            <div class="form-box-item-item">
+              <el-input
+                size="small"
+                placeholder="请输入项目计划名称"
+              ></el-input>
+            </div>
+          </div>
+        </div>
+        <!-- 项目计划名称 -->
+        <div class="form-container">
+          <div class="form-box-item">
+            <div class="form-box-item-label">
+              <span class="letterspance2">项目计划名称</span>
+            </div>
+            <div class="form-box-item-item">
+              <el-input
+                size="small"
+                placeholder="请输入项目计划名称"
+              ></el-input>
+            </div>
+          </div>
+        </div>
+        <!-- 项目计划名称 -->
+        <div class="form-container">
+          <div class="form-box-item">
+            <div class="form-box-item-label">
+              <span class="letterspance2">项目计划名称</span>
+            </div>
+            <div class="form-box-item-item">
+              <el-input
+                size="small"
+                placeholder="请输入项目计划名称"
+              ></el-input>
             </div>
           </div>
         </div>
         <div class="form-container">
-          <div class="form-box-item serch-operate" style="width:200px">
-            <el-button size="small" type="primary" @click="refreshList" icon="fa fa-search">搜索</el-button>
+          <div class="form-box-item serch-operate" style="width: 200px">
+            <el-button
+              size="small"
+              type="primary"
+              @click="refreshList"
+              icon="fa fa-search"
+              >搜索</el-button
+            >
           </div>
         </div>
       </div>
     </div>
-
     <!-- 列表页面 -->
     <div class="table-list-box">
-      <div class="column-tit">
-        <img src="./assets/images/dot1.png" alt class="mr-10" />
-        <b class="vertical-m">列表</b>
-        <img src="./assets/images/dot2.png" alt class="ml-10" />
-        <slot name="extra"></slot>
+      <div class="customer-title">
+        <i class="fa fa-newspaper-o">&nbsp;&nbsp;&nbsp;&nbsp;列表</i>
+        <slot name="extra">
+          <el-row style="float: right; line-height: 30px">
+            <el-button type="primary" icon="el-icon-edit" size="medium" style="margin-right:20px;">新增</el-button>
+          </el-row>
+        </slot>
       </div>
-
-      <el-table :data="tableData" style="width: 100%" border stripe height="550">
-        <el-table-column type="selection" width="55" align="center"></el-table-column>
-        <el-table-column type="index" label="序号" width="50" align="center"></el-table-column>
-        <el-table-column prop="date" label="日期" width="180" align="center"></el-table-column>
-        <el-table-column prop="name" label="姓名" width="180" align="center"></el-table-column>
-        <el-table-column prop="address" label="地址" align="center"></el-table-column>
-        <el-table-column prop="address" label="地址" align="center"></el-table-column>
-        <el-table-column prop="address" label="地址" align="center"></el-table-column>
-        <el-table-column prop="address" label="地址" align="center"></el-table-column>
-        <el-table-column label="操作" width="250" align="center">
+      <el-table
+        :data="tableData"
+        style="width: 100%"
+        border
+        stripe
+        :max-height="tableHeight"
+      >
+        <el-table-column
+          type="selection"
+          width="55"
+          align="center"
+        ></el-table-column>
+        <el-table-column
+          type="index"
+          label="序号"
+          width="50"
+          align="center"
+        ></el-table-column>
+        <el-table-column
+          prop="date"
+          label="日期"
+          width="180"
+          align="center"
+        ></el-table-column>
+        <el-table-column
+          prop="name"
+          label="姓名"
+          width="180"
+          align="center"
+        ></el-table-column>
+        <el-table-column
+          prop="address"
+          label="地址"
+          align="center"
+        ></el-table-column>
+        <el-table-column
+          prop="address"
+          label="地址"
+          align="center"
+        ></el-table-column>
+        <el-table-column
+          prop="address"
+          label="地址"
+          align="center"
+        ></el-table-column>
+        <el-table-column
+          prop="address"
+          label="地址"
+          align="center"
+        ></el-table-column>
+        <el-table-column label="操作" width="180" align="center">
           <template slot-scope="scope">
-            <el-button size="mini" type="success" plain @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-            <el-button size="mini" type="info" plain>详情</el-button>
-            <el-button size="mini" type="danger" plain @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+            <el-button
+              size="mini"
+              type="success"
+              plain
+              title="编辑"
+              icon="el-icon-edit"
+              @click="handleEdit(scope.$index, scope.row)"
+              ></el-button
+            >
+            <el-button size="mini" type="info" plain icon="el-icon-document" title="详情"></el-button>
+            <el-button
+              size="mini"
+              type="danger"
+              plain
+              title="删除"
+              icon="el-icon-delete"
+              @click="handleDelete(scope.$index, scope.row)"
+              ></el-button
+            >
           </template>
         </el-table-column>
       </el-table>
+
       <el-pagination
+        style="padding: 8px 30px 0px 0px; float: right"
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
         :current-page="currentPage4"
@@ -137,7 +245,6 @@ export default MisManageJs;
 
 <style lang="less" scoped>
 @import url(./assets/style/style.css);
-
 .seach-container {
   border: 1px solid #d5dde7;
   border-radius: 4px;
@@ -147,8 +254,18 @@ export default MisManageJs;
   box-shadow: 1px 1px 8px 0px #e5e9f2;
   height: auto;
   overflow: hidden;
+  margin-top: 8px;
   margin-bottom: 8px;
-
+  .customer-title {
+    height: 30px;
+    padding: 0px;
+    line-height: 30px;
+    i {
+      color: #089680;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
   .form-container {
     width: 300px;
     margin: 10px;
@@ -205,28 +322,6 @@ export default MisManageJs;
   }
 }
 
-.column-tit {
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 30px;
-  color: #1c83e3;
-
-  .vertical-m {
-    vertical-align: middle;
-  }
-
-  .mr-10 {
-    margin-right: 10px;
-  }
-  .ml-10 {
-    margin-left: 10px;
-  }
-  img {
-    vertical-align: middle;
-    border-style: none;
-  }
-}
-
 .table-list-box {
   border: 1px solid #d5dde7;
   border-radius: 4px;
@@ -237,6 +332,15 @@ export default MisManageJs;
   position: relative;
   bottom: 0px;
   overflow: hidden;
-  height: 600px;
+  .customer-title {
+    height: 36px;
+    padding: 0px 0px 8px 0px;
+    line-height: 36px;
+    i {
+      color: #089680;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
 }
 </style>
