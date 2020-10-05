@@ -290,3 +290,72 @@
 	height: 12px;
 	position: static;
 }
+
+
+/*地图popup的样式*/
+#mapDIV .leaflet-popup-content-wrapper{
+  padding: 0px !important;
+}
+#mapDIV .leaflet-popup-content{
+  margin:0 !important;
+}
+#mapDIV .leaflet-container a.leaflet-popup-close-button{
+  color: #fff !important;
+}
+
+.leaflet-popup-content-wrapper{
+  border-radius:0px !important;
+}
+
+.leaflet-popup-content{
+  width: auto !important;
+}
+
+#mapDIV .popuCustomerPanel{
+  width: 450px; 
+  height: 240px;
+}
+
+#mapDIV .popuCustomerPanelTitle{
+  width: 100%;
+  height: 35px;
+  line-height: 35px;
+  background-color: rgb(49, 126, 236);
+  color: #fff;
+
+  text-align: left;
+  text-indent: 5px;
+}
+
+#mapDIV .popuCustomerPanelTab{
+  width: 70px;
+  height: calc(205px - 10px);
+  /*background-color: red;*/
+  padding: 5px 3px 5px 2px;
+  float:left;
+  background-color: rgb(0, 0, 0, 0.1);
+}
+
+#mapDIV .popuCustomerPanelTab .popuCustomerPanelTabItem{
+   width: 100%;
+   height: 15;
+   line-height: 20px;
+   padding: 2px 0px;
+   background-color: rgb(49, 126, 236, 0.1);
+   border:1px solid #fff;
+   cursor: pointer;
+}
+
+#mapDIV .popuCustomerPanelTab .popuCustomerPanelTabItemChecked{
+   background-color: rgb(49, 126, 236);
+   color: #fff !important;
+   cursor: pointer;
+}
+
+#mapDIV .popuCustomerPanelContent{
+  width: 370px;
+  height: calc(205px - 10px);
+  background-color: #fff;
+  padding: 5px 5px 5px 0px;
+  float:left;
+}

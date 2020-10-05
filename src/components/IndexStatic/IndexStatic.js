@@ -253,7 +253,359 @@ export default {
           "红色": 0,
           total: 0
         },
-      }
+      },
+      "monitorJCZData": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              105.728999,
+              33.125539
+            ]
+          },
+          "properties": {
+            "name": "水位计",
+            "unit": "Kpa",
+            "warnType": true,
+            "children": [
+              {
+                "number": "28BAC5A50800002B",
+                "name": "ZK5-1.5M",
+                "calc": true,
+                "calcObj": {
+                  "type": "dxsw",
+                  "initValue": 81.4,
+                  "height": 1.5
+                }
+              },
+              {
+                "number": "28154FA508000025",
+                "name": "ZK4-2M",
+                "calc": true,
+                "calcObj": {
+                  "type": "dxsw",
+                  "initValue": 81.4,
+                  "height": 2
+                }
+              },
+              {
+                "number": "283DEC450B0000E2",
+                "name": "ZK3-14M-N",
+                "calc": true,
+                "calcObj": {
+                  "type": "dxsw",
+                  "initValue": 81.4,
+                  "height": 14
+                }
+              },
+              {
+                "number": "286BC1890A0000EA",
+                "name": "ZK3-16M",
+                "calc": true,
+                "calcObj": {
+                  "type": "dxsw",
+                  "initValue": 81.4,
+                  "height": 16
+                }
+              },
+              {
+                "number": "288274A60800006D",
+                "name": "ZK2-18M",
+                "calc": true,
+                "calcObj": {
+                  "type": "dxsw",
+                  "initValue": 81.4,
+                  "height": 18
+                }
+              },
+              {
+                "number": "28F762A508000076",
+                "name": "ZK1-20M",
+                "calc": true,
+                "calcObj": {
+                  "type": "dxsw",
+                  "initValue": 81.4,
+                  "height": 20
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              105.728559,
+              33.12332
+            ]
+          },
+          "properties": {
+            "name": "电子测斜仪",
+            "unit": "无量纲",
+            "warnType": true,
+            "children": [
+              {
+                "number": "28F9DD68080000E1",
+                "name": "ZK1-S-13M",
+                "calc": true,
+                "calcObj": {
+                  "type": "cxy",
+                  "initValue": -2.91,
+                  "height": 10000
+                },
+                "calcSL": true
+              },
+              {
+                "number": "28AB966808000038",
+                "name": "ZK1-S-16M",
+                "calc": true,
+                "calcObj": {
+                  "type": "cxy",
+                  "initValue": -1.04,
+                  "height": 7000
+                },
+                "calcSL": true
+              },
+              {
+                "number": "283E2368080000FF",
+                "name": "ZK1-S-19M",
+                "calc": true,
+                "calcObj": {
+                  "type": "cxy",
+                  "initValue": -1.96,
+                  "height": 4000
+                },
+                "calcSL": true
+              }
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              105.731574,
+              33.122412
+            ]
+          },
+          "properties": {
+            "name": "滑坡位移计",
+            "unit": "mm",
+            "children": [
+              {
+                "number": "28E836FB090000E5",
+                "name": "HP01"
+              }
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              105.73401,
+              33.123814
+            ]
+          },
+          "properties": {
+            "name": "雨量计",
+            "unit": "mm",
+            "children": [
+              {
+                "number": "28F49100B4040087",
+                "name": "01",
+                "queryType": "MonitorYLSJDataQuery"
+              }
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              105.730995,
+              33.12358
+            ]
+          },
+          "properties": {
+            "name": "土壤温湿度(W-TJ7)",
+            "unit": "%",
+            "ico": "ylz",
+            "children": [
+              {
+                "number": "288E19770A00002C",
+                "name": "W-TJ7-0.8m"
+              },
+              {
+                "number": "28B2E2B70A000053",
+                "name": "W-TJ7-0.5m"
+              },
+              {
+                "number": "287FDE780A000080",
+                "name": "W-TJ7-1.1m"
+              },
+              {
+                "number": "2803E6B80A0000E6",
+                "name": "W-TJ7-0.1m"
+              },
+              {
+                "number": "28B218770A000071",
+                "name": "W-TJ7-0.3m"
+              }
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              105.732411,
+              33.125386
+            ]
+          },
+          "properties": {
+            "name": "激光测距仪",
+            "unit": "mm",
+            "ico": "ylz",
+            "children": [
+              {
+                "number": "28F47206FE0400D7",
+                "name": "JGCJY"
+              }
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              105.730255,
+              33.124613
+            ]
+          },
+          "properties": {
+            "name": "土壤温湿度(W-TJ6)",
+            "unit": "%",
+            "ico": "ylz",
+            "children": [
+              {
+                "number": "28155DB70A0000AA",
+                "name": "W-TJ6-0.8m"
+              },
+              {
+                "number": "28B01BB80A0000F2",
+                "name": "W-TJ6-0.35m"
+              },
+              {
+                "number": "28B7C5B70A000011",
+                "name": "W-TJ6-0.1m"
+              },
+              {
+                "number": "2853CEB70A000094",
+                "name": "W-TJ6-1.1m"
+              },
+              {
+                "number": "287FCAB70A000040",
+                "name": "W-TJ6-0.5m"
+              }
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              105.733162,
+              33.125036
+            ]
+          },
+          "properties": {
+            "name": "冻胀计",
+            "unit": "mm",
+            "ico": "ylz",
+            "children": [
+              {
+                "number": "286CDF890A0000B1",
+                "name": "DZ-TJ6-0.7m"
+              }
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              105.730362,
+              33.123167
+            ]
+          },
+          "properties": {
+            "name": "土压力计(TJ6)",
+            "unit": "Kpa",
+            "ico": "ylz",
+            "children": [
+              {
+                "number": "2882C3B60A000407",
+                "name": "TJ6-1.1m"
+              },
+              {
+                "number": "2882C3B60A000406",
+                "name": "TJ6-0.5m"
+              },
+              {
+                "number": "2882C3B60A000403",
+                "name": "TJ6-0.8m"
+              },
+              {
+                "number": "2882C3B60A000402",
+                "name": "TJ6-0.3m"
+              }
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              105.72945,
+              33.122439
+            ]
+          },
+          "properties": {
+            "name": "土压力计(TJ7)",
+            "unit": "Kpa",
+            "ico": "ylz",
+            "children": [
+              {
+                "number": "2882C3B60A000408",
+                "name": "TJ7-0.8m"
+              },
+              {
+                "number": "2882C3B60A000405",
+                "name": "TJ7-1.1m"
+              },
+              {
+                "number": "2882C3B60A000404",
+                "name": "TJ7-0.3m"
+              },
+              {
+                "number": "2882C3B60A000401",
+                "name": "TJ7-0.5m"
+              }
+            ]
+          }
+        }
+      ]
     }
   },
   created() {
@@ -356,7 +708,6 @@ export default {
                   });
                   that.map.addLayer(layerTile);
                   that.layerArray.push(layerTile);
-
                   break;
               }
             }

@@ -171,13 +171,11 @@
         <el-table-column
           prop="date"
           label="日期"
-          width="180"
           align="center"
         ></el-table-column>
         <el-table-column
           prop="name"
           label="姓名"
-          width="180"
           align="center"
         ></el-table-column>
         <el-table-column

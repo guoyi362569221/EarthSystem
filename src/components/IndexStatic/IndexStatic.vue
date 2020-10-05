@@ -9,7 +9,7 @@
             <i class="left icoClass01 fa fa-newspaper-o"></i>
             <!-- <img src="./assets/images/info_1.png" class="left text01_img" /> -->
             <div class="left text01_div">
-              <p>公告总数(次)</p>
+              <p>公告数(次)</p>
               <p>{{staticInfo.ggzs}}</p>
             </div>
           </div>
@@ -17,7 +17,7 @@
             <i class="left icoClass01 fa fa-wifi"></i>
             <!-- <img src="./assets/images/info_2.png" class="left text01_img" /> -->
             <div class="left text01_div">
-              <p>监测点总数(个)</p>
+              <p>监测点数(个)</p>
               <p>{{staticInfo.jcdzs}}</p>
             </div>
           </div>
@@ -27,7 +27,7 @@
             <i class="left icoClass03 fa fa-binoculars"></i>
             <!-- <img src="./assets/images/info_3.png" class="left text01_img" /> -->
             <div class="left text01_div">
-              <p>设备类型总数(个)</p>
+              <p>设备类型数(个)</p>
               <p class="sky">{{staticInfo.sblxzs}}</p>
             </div>
           </div>
@@ -35,7 +35,7 @@
             <i class="left icoClass03 fa fa-microchip"></i>
             <!-- <img src="./assets/images/info_4.png" class="left text01_img" /> -->
             <div class="left text01_div">
-              <p>设备总台数(台)</p>
+              <p>设备数(台)</p>
               <p class="sky">{{staticInfo.sbzts}}</p>
             </div>
           </div>
@@ -45,7 +45,7 @@
              <i class="left icoClass05 fa fa-database"></i>
             <!-- <img src="./assets/images/info_5.png" class="left text01_img" /> -->
             <div class="left text01_div">
-              <p>历史采集数据(条)</p>
+              <p>历史采集(条)</p>
               <p class="org">{{staticInfo.lscjsj}}</p>
             </div>
           </div>
@@ -53,7 +53,7 @@
              <i class="left icoClass05 fa fa-line-chart"></i>
             <!-- <img src="./assets/images/info_6.png" class="left text01_img" /> -->
             <div class="left text01_div">
-              <p>今日采集数据(条)</p>
+              <p>今日采集(条)</p>
               <p class="org">{{staticInfo.jrcjsj}}</p>
             </div>
           </div>

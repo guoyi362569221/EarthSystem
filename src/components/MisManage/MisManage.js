@@ -113,7 +113,6 @@ export default {
       });
     },
     calcTableHeight(){
-      debugger
       this.tableHeight = this.$_jQuery(".content").height() - 32 - this.$_jQuery(".seach-container").height() - 18 - 106;
     },
     getBreadcrumb() {
