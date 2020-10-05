@@ -150,6 +150,7 @@
         </slot>
       </div>
       <el-table
+        v-3clear_scrollBar="'el_table_scroll'"
         :data="tableData"
         style="width: 100%"
         border
